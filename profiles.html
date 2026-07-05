@@ -66,7 +66,6 @@
             transition: border-color 0.2s ease;
         }
 
-        /* Samay's image - crop from top */
         .profile-avatar.samay {
             object-position: center 20%;
         }
@@ -103,7 +102,6 @@
             border-color: #fff;
         }
 
-        /* Fallback for images that don't load */
         .profile-avatar[src] {
             background: #333;
         }
@@ -116,7 +114,7 @@
 
         <div class="profile-grid">
             <!-- Lurker -->
-            <div class="profile-item">
+            <div class="profile-item" data-profile="lurker">
                 <img
                     class="profile-avatar"
                     src="https://raw.githubusercontent.com/ar33b-shola/samay-fan-site/refs/heads/main/assets/lurker.png"
@@ -127,7 +125,7 @@
             </div>
 
             <!-- Explorer -->
-            <div class="profile-item">
+            <div class="profile-item" data-profile="explorer">
                 <img
                     class="profile-avatar"
                     src="https://raw.githubusercontent.com/ar33b-shola/samay-fan-site/refs/heads/main/assets/explorer.png"
@@ -137,8 +135,8 @@
                 <div class="profile-name">Explorer</div>
             </div>
 
-            <!-- Samay Raina - with samay class for top crop -->
-            <div class="profile-item">
+            <!-- Samay Raina -->
+            <div class="profile-item" data-profile="samay">
                 <img
                     class="profile-avatar samay"
                     src="https://raw.githubusercontent.com/ar33b-shola/samay-fan-site/refs/heads/main/assets/mai%20samay%20hu.jpg"
@@ -149,7 +147,7 @@
             </div>
 
             <!-- Balraj Ghai -->
-            <div class="profile-item">
+            <div class="profile-item" data-profile="balraj">
                 <img
                     class="profile-avatar"
                     src="https://raw.githubusercontent.com/ar33b-shola/samay-fan-site/refs/heads/main/assets/balraj.png"
@@ -160,7 +158,7 @@
             </div>
 
             <!-- Sunil Pal -->
-            <div class="profile-item">
+            <div class="profile-item" data-profile="sunil">
                 <img
                     class="profile-avatar"
                     src="https://raw.githubusercontent.com/ar33b-shola/samay-fan-site/refs/heads/main/assets/388180-h.webp"
@@ -173,6 +171,15 @@
 
         <button class="manage-btn">Manage Profiles</button>
     </div>
+
+    <script>
+        // Click any profile -> redirect to home.html
+        document.querySelectorAll('.profile-item').forEach(item => {
+            item.addEventListener('click', function() {
+                window.location.href = 'home.html';
+            });
+        });
+    </script>
 
 </body>
 </html>

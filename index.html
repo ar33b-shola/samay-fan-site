@@ -116,7 +116,6 @@
             width: 220px;
             height: 220px;
             opacity: 0;
-            /* animation removed from here - will be added via JS */
         }
 
         .logo-wrapper img {
@@ -125,7 +124,6 @@
             display: block;
         }
 
-        /* Netflix-style intro - longer pause, faster zoom */
         @keyframes netflixIntro {
             0% {
                 opacity: 0;
@@ -145,7 +143,6 @@
             }
         }
 
-        /* Animation class that will be added via JS */
         .logo-wrapper.animate {
             animation: netflixIntro 3.5s ease-out forwards;
         }
@@ -198,98 +195,46 @@
             audio.src = 'https://github.com/ar33b-shola/samay-fan-site/raw/refs/heads/main/assets/thud.mp3';
             audio.preload = 'auto';
             audio.volume = 0.9;
-            // Load the audio in background
             audio.load();
 
             let hasStarted = false;
 
-            // --- TRANSITION TO NEXT SCREEN ---
-            function goToNextScreen() {
-                // Fade out intro
+            // --- TRANSITION TO PROFILES PAGE ---
+            function goToProfiles() {
                 intro.classList.add('hidden');
-
-                // Stop audio if playing
                 audio.pause();
                 audio.currentTime = 0;
 
-                // After fade, show "Who's watching?" screen
                 setTimeout(function() {
-                    document.body.innerHTML = `
-                        <div style="
-                            background: #141414;
-                            color: #fff;
-                            height: 100vh;
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            justify-content: center;
-                            font-family: 'Helvetica Neue', Arial, sans-serif;
-                        ">
-                            <h1 style="font-size: 3rem; font-weight: 300; margin-bottom: 2rem;">Who's watching?</h1>
-                            <div style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;">
-                                <div style="text-align: center; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                                    <div style="width: 120px; height: 120px; background: #333; border-radius: 8px; margin-bottom: 0.5rem;"></div>
-                                    <span style="color: #808080;">Profile 1</span>
-                                </div>
-                                <div style="text-align: center; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                                    <div style="width: 120px; height: 120px; background: #444; border-radius: 8px; margin-bottom: 0.5rem;"></div>
-                                    <span style="color: #808080;">Profile 2</span>
-                                </div>
-                                <div style="text-align: center; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                                    <div style="width: 120px; height: 120px; background: #555; border-radius: 8px; margin-bottom: 0.5rem;"></div>
-                                    <span style="color: #808080;">Profile 3</span>
-                                </div>
-                            </div>
-                            <button style="
-                                margin-top: 2.5rem;
-                                background: transparent;
-                                color: #808080;
-                                border: 1px solid #808080;
-                                padding: 10px 40px;
-                                font-size: 1rem;
-                                cursor: pointer;
-                                border-radius: 4px;
-                                transition: all 0.2s;
-                            " onmouseover="this.style.color='#fff';this.style.borderColor='#fff'" onmouseout="this.style.color='#808080';this.style.borderColor='#808080'">
-                                Manage Profiles
-                            </button>
-                        </div>
-                    `;
+                    window.location.href = 'profiles.html';
                 }, 600);
             }
 
-            // --- START INTRO TIMELINE ---
+            // --- START INTRO ---
             function startIntro() {
                 if (hasStarted) return;
                 hasStarted = true;
 
-                // Trigger the animation by adding the class
                 logoWrapper.classList.add('animate');
-
-                // Play sound immediately
                 audio.currentTime = 0;
                 audio.play().catch(function(e) {
                     console.log('Audio play failed:', e);
                 });
 
-                // Auto-transition after 3.5 seconds (matches animation duration)
                 setTimeout(function() {
-                    goToNextScreen();
+                    goToProfiles();
                 }, 3500);
             }
 
-            // --- DISCLAIMER CONTINUE BUTTON ---
+            // --- DISCLAIMER CONTINUE ---
             continueBtn.addEventListener('click', function() {
-                // Hide disclaimer
                 disclaimer.classList.add('hidden');
-                
-                // Start the intro after disclaimer fades out
                 setTimeout(function() {
                     startIntro();
                 }, 500);
             });
 
-            console.log('Netflix-style intro ready - longer pause, faster zoom');
+            console.log('Netflix-style intro ready');
         })();
     </script>
 

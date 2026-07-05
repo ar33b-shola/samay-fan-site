@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>Who's Watching? - Samay Raina</title>
     <style>
         * {
@@ -21,10 +21,12 @@
             justify-content: center;
             font-family: 'Helvetica Neue', Arial, sans-serif;
             overflow: hidden;
+            padding: 20px;
         }
 
         .profile-container {
             max-width: 900px;
+            width: 100%;
             padding: 40px;
             text-align: center;
         }
@@ -49,10 +51,15 @@
             text-align: center;
             cursor: pointer;
             transition: transform 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .profile-item:hover {
             transform: scale(1.05);
+        }
+
+        .profile-item:active {
+            transform: scale(0.95);
         }
 
         .profile-avatar {
@@ -102,8 +109,159 @@
             border-color: #fff;
         }
 
+        .manage-btn:active {
+            transform: scale(0.97);
+        }
+
         .profile-avatar[src] {
             background: #333;
+        }
+
+        /* ============================================
+           MOBILE OPTIMIZATIONS (same UI, just better)
+           ============================================ */
+        @media (max-width: 768px) {
+            .profile-container {
+                padding: 20px 16px;
+            }
+
+            .profile-container h1 {
+                font-size: 2.2rem;
+                margin-bottom: 2rem;
+            }
+
+            .profile-grid {
+                gap: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .profile-avatar {
+                width: 100px;
+                height: 100px;
+            }
+
+            .profile-name {
+                font-size: 0.85rem;
+            }
+
+            .manage-btn {
+                padding: 12px 32px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-container {
+                padding: 16px 12px;
+            }
+
+            .profile-container h1 {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .profile-grid {
+                gap: 1.2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .profile-avatar {
+                width: 80px;
+                height: 80px;
+                border-radius: 6px;
+            }
+
+            .profile-name {
+                font-size: 0.75rem;
+            }
+
+            .manage-btn {
+                padding: 10px 24px;
+                font-size: 0.8rem;
+                border-radius: 3px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .profile-grid {
+                gap: 0.8rem;
+            }
+
+            .profile-avatar {
+                width: 68px;
+                height: 68px;
+            }
+
+            .profile-container h1 {
+                font-size: 1.5rem;
+            }
+
+            .profile-name {
+                font-size: 0.7rem;
+            }
+
+            .manage-btn {
+                padding: 8px 20px;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Landscape phone support */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .profile-container {
+                padding: 12px 20px;
+            }
+
+            .profile-container h1 {
+                font-size: 1.6rem;
+                margin-bottom: 1rem;
+            }
+
+            .profile-grid {
+                gap: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .profile-avatar {
+                width: 70px;
+                height: 70px;
+            }
+
+            .profile-name {
+                font-size: 0.7rem;
+            }
+
+            .manage-btn {
+                padding: 8px 24px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Small landscape screens */
+        @media (max-height: 400px) and (orientation: landscape) {
+            .profile-avatar {
+                width: 55px;
+                height: 55px;
+            }
+
+            .profile-container h1 {
+                font-size: 1.3rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .profile-grid {
+                gap: 0.8rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .profile-name {
+                font-size: 0.6rem;
+            }
+
+            .manage-btn {
+                padding: 6px 18px;
+                font-size: 0.7rem;
+            }
         }
     </style>
 </head>

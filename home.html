@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <title>Samay Raina - Home</title>
     <style>
@@ -19,113 +19,84 @@
             overflow-x: hidden;
         }
 
-/* ========== FOOTER ========== */
-.footer {
-    background: #0a0a0a;
-    border-top: 1px solid #1f1f1f;
-    padding: 50px 60px 30px 60px;
-    margin-top: 40px;
-}
+        /* ========== FOOTER ========== */
+        .footer {
+            background: #0a0a0a;
+            border-top: 1px solid #1f1f1f;
+            padding: 50px 60px 30px 60px;
+            margin-top: 40px;
+        }
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-}
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
 
-.footer-brand h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 10px;
-}
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        }
 
-.footer-brand p {
-    color: #888;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    font-weight: 300;
-    max-width: 500px;
-}
+        .footer-brand p {
+            color: #888;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            font-weight: 300;
+            max-width: 500px;
+        }
 
-.footer-social-icons {
-    display: flex;
-    gap: 25px;
-    align-items: center;
-}
+        .footer-social-icons {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
 
-.footer-social-icons a {
-    color: #888;
-    text-decoration: none;
-    font-size: 1.8rem;
-    transition: color 0.25s ease, transform 0.25s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: #1a1a1a;
-    border: 1px solid #2a2a2a;
-}
+        .footer-social-icons a {
+            color: #888;
+            text-decoration: none;
+            font-size: 1.8rem;
+            transition: color 0.25s ease, transform 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+        }
 
-.footer-social-icons a:hover {
-    color: #ff8800;
-    transform: scale(1.1) translateY(-3px);
-    border-color: #ff8800;
-    box-shadow: 0 0 20px rgba(255, 136, 0, 0.15);
-}
+        .footer-social-icons a:hover {
+            color: #ff8800;
+            transform: scale(1.1) translateY(-3px);
+            border-color: #ff8800;
+            box-shadow: 0 0 20px rgba(255, 136, 0, 0.15);
+        }
 
-.footer-bottom {
-    max-width: 1200px;
-    margin: 30px auto 0 auto;
-    padding-top: 20px;
-    border-top: 1px solid #1f1f1f;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 30px auto 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid #1f1f1f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
 
-.footer-bottom p {
-    color: #555;
-    font-size: 0.8rem;
-    font-weight: 300;
-    text-align: center;
-}
-
-/* Responsive Footer */
-@media (max-width: 768px) {
-    .footer {
-        padding: 40px 30px 20px 30px;
-    }
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 25px;
-    }
-    .footer-brand p {
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .footer {
-        padding: 30px 16px 20px 16px;
-    }
-    .footer-social-icons {
-        gap: 15px;
-    }
-    .footer-social-icons a {
-        font-size: 1.3rem;
-        width: 40px;
-        height: 40px;
-    }
-}
+        .footer-bottom p {
+            color: #555;
+            font-size: 0.8rem;
+            font-weight: 300;
+            text-align: center;
+        }
 
         /* ========== GALLERY - CENTERED & SMALLER ========== */
         .gallery-section {
@@ -140,15 +111,15 @@
             display: flex;
             justify-content: center;
             width: 100%;
-            max-width: 800px;  /* CHHOTA KAR DIYA */
+            max-width: 800px;
         }
 
         #gallery-container {
             display: grid;
             grid-template-columns: repeat(11, 1fr);
-            gap: 4px;  /* GAP KAM KAR DIYA */
+            gap: 4px;
             background: #1a1a1a;
-            padding: 10px;  /* PADDING KAM KAR DIYA */
+            padding: 10px;
             border-radius: 12px;
             box-shadow: 0 0 30px rgba(255, 100, 0, 0.12);
             width: 100%;
@@ -171,6 +142,10 @@
             border-color: #ff8800;
             z-index: 10;
             position: relative;
+        }
+
+        .small-img:active {
+            transform: scale(0.95);
         }
 
         #main-display {
@@ -367,6 +342,10 @@
             background: #e6e6e6;
         }
 
+        .btn-play:active {
+            transform: scale(0.97);
+        }
+
         .btn-mylist {
             background: rgba(255, 255, 255, 0.15);
             color: #fff;
@@ -382,6 +361,10 @@
 
         .btn-mylist:hover {
             background: rgba(255, 255, 255, 0.25);
+        }
+
+        .btn-mylist:active {
+            transform: scale(0.97);
         }
 
         .hero-description {
@@ -468,6 +451,10 @@
             background: #2a2a2a;
         }
 
+        .card:active {
+            transform: scale(0.95);
+        }
+
         .card-thumbnail {
             width: 100%;
             aspect-ratio: 16 / 9;
@@ -527,16 +514,23 @@
             overflow: hidden;
         }
 
-        /* ========== RESPONSIVE ========== */
+        /* ============================================
+           MOBILE OPTIMIZATIONS (same UI, just better)
+           ============================================ */
         @media (max-width: 1024px) {
             .card {
                 flex: 0 0 calc((100% - 36px) / 4);
+                min-width: 160px;
             }
         }
 
         @media (max-width: 768px) {
             .navbar {
                 padding: 0 30px;
+                height: 70px;
+            }
+            .navbar-logo {
+                height: 40px;
             }
             .nav-links {
                 gap: 20px;
@@ -561,7 +555,11 @@
                 height: 40vh;
             }
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
+            }
+            .hero-description {
+                font-size: 0.9rem;
+                max-width: 100%;
             }
             .row-container {
                 padding: 0 30px;
@@ -580,6 +578,18 @@
             }
             #main-display {
                 grid-column: 3 / span 7;
+            }
+
+            .footer {
+                padding: 40px 30px 20px 30px;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 25px;
+            }
+            .footer-brand p {
+                max-width: 100%;
             }
         }
 
@@ -605,13 +615,28 @@
                 height: 30vh;
             }
             .hero-title {
-                font-size: 1.8rem;
+                font-size: 2rem;
+            }
+            .hero-rating {
+                font-size: 0.75rem;
+                gap: 12px;
+                flex-wrap: wrap;
             }
             .hero-description {
                 font-size: 0.8rem;
+                line-height: 1.5;
+            }
+            .hero-meta {
+                font-size: 0.75rem;
+                gap: 15px;
+                flex-wrap: wrap;
             }
             .hero-buttons {
                 flex-wrap: wrap;
+            }
+            .btn-play, .btn-mylist {
+                padding: 8px 20px;
+                font-size: 0.8rem;
             }
             .row-container {
                 padding: 0 16px;
@@ -622,6 +647,13 @@
             .card {
                 flex: 0 0 calc((100% - 12px) / 2);
                 min-width: 100px;
+            }
+            .card-title {
+                font-size: 0.7rem;
+                min-height: 1.8rem;
+            }
+            .card-desc {
+                font-size: 0.6rem;
             }
 
             .gallery-wrapper {
@@ -644,6 +676,103 @@
             #modal-img {
                 max-width: 92%;
                 max-height: 80%;
+            }
+
+            .footer {
+                padding: 30px 16px 20px 16px;
+            }
+            .footer-social-icons {
+                gap: 15px;
+            }
+            .footer-social-icons a {
+                font-size: 1.3rem;
+                width: 40px;
+                height: 40px;
+            }
+            .footer-brand h3 {
+                font-size: 1.2rem;
+            }
+            .footer-brand p {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            .hero-left {
+                height: 45vh;
+                padding: 20px 12px;
+            }
+            .hero-right {
+                height: 25vh;
+            }
+            .card {
+                flex: 0 0 calc((100% - 8px) / 2);
+                min-width: 80px;
+            }
+            .card-title {
+                font-size: 0.6rem;
+                min-height: 1.5rem;
+            }
+            .card-info {
+                padding: 6px 6px 4px 6px;
+            }
+            #gallery-container {
+                gap: 1px;
+                padding: 3px;
+            }
+            .small-img {
+                border-width: 1px;
+            }
+        }
+
+        /* Landscape phone support */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero {
+                height: auto;
+            }
+            .hero-left {
+                height: 50vh;
+                padding: 20px 30px;
+            }
+            .hero-right {
+                height: 40vh;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+            .hero-description {
+                font-size: 0.8rem;
+                max-width: 100%;
+            }
+            .hero-rating {
+                font-size: 0.75rem;
+            }
+            .hero-meta {
+                font-size: 0.75rem;
+            }
+            .btn-play, .btn-mylist {
+                padding: 6px 16px;
+                font-size: 0.75rem;
+            }
+            .navbar {
+                height: 50px;
+                padding: 0 20px;
+            }
+            .navbar-logo {
+                height: 28px;
+            }
+            .nav-links li a {
+                font-size: 0.7rem;
+            }
+            .row-container {
+                padding: 0 20px;
+            }
+            .card {
+                flex: 0 0 calc((100% - 16px) / 3);
+                min-width: 120px;
             }
         }
     </style>
@@ -893,34 +1022,33 @@
         })();
     </script>
 
-<!-- ========== FOOTER ========== -->
-<footer class="footer">
-    <div class="footer-content">
-        <!-- Brand -->
-        <div class="footer-brand">
-            <h3>Mohammad Areeb Hussain Shola</h3>
-            <p>
-                Whatever you are doing in life — 9 to 5, startup, whatever... dil se mat karna, dimaag lagake karo, detach and do it!
-            </p>
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Brand -->
+            <div class="footer-brand">
+                <h3>Mohammad Areeb Hussain Shola</h3>
+                <p>
+                    Whatever you are doing in life — 9 to 5, startup, whatever... dil se mat karna, dimaag lagake karo, detach and do it!
+                </p>
+            </div>
+
+            <!-- Social Icons - Right Side -->
+            <div class="footer-social-icons">
+                <a href="mailto:mohammadareebhussainshola@gmail.com" target="_blank" title="Email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+                <a href="https://www.instagram.com/ar33b.shola" target="_blank" title="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
         </div>
 
-        <!-- Social Icons - Right Side -->
-        <div class="footer-social-icons">
-            <a href="mailto:mohammadareebhussainshola@gmail.com" target="_blank" title="Email">
-                <i class="fa-solid fa-envelope"></i>
-            </a>
-            <a href="https://www.instagram.com/ar33b.shola" target="_blank" title="Instagram">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 Areeb. Made with ❤️ by Mohammad Areeb Hussain Shola.</p>
         </div>
-    </div>
-
-    <!-- Bottom Bar -->
-    <div class="footer-bottom">
-        <p>&copy; 2026 Areeb. Made with ❤️ by Mohammad Areeb Hussain Shola.</p>
-    </div>
-</footer>
+    </footer>
 
 </body>
 </html>
-

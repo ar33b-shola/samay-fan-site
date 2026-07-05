@@ -407,7 +407,7 @@
             text-align: center;
         }
 
-        /* ========== GALLERY ========== */
+        /* ========== GALLERY - SEXY ON BOTH ========== */
         .gallery-section {
             width: 100%;
             display: flex;
@@ -420,17 +420,17 @@
             display: flex;
             justify-content: center;
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
         }
 
         #gallery-container {
             display: grid;
             grid-template-columns: repeat(11, 1fr);
-            gap: 4px;
+            gap: 6px;
             background: #1a1a1a;
-            padding: 10px;
-            border-radius: 12px;
-            box-shadow: 0 0 30px rgba(255, 100, 0, 0.12);
+            padding: 12px;
+            border-radius: 16px;
+            box-shadow: 0 0 40px rgba(255, 100, 0, 0.15);
             width: 100%;
             position: relative;
         }
@@ -439,16 +439,16 @@
             width: 100%;
             aspect-ratio: 1/1;
             object-fit: cover;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1), box-shadow 0.3s ease;
             border: 2px solid transparent;
             -webkit-tap-highlight-color: transparent;
         }
 
         .small-img:hover {
-            transform: scale(1.08);
-            box-shadow: 0 0 20px rgba(255, 150, 50, 0.5);
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255, 150, 50, 0.6);
             border-color: #ff8800;
             z-index: 10;
             position: relative;
@@ -461,26 +461,31 @@
         #main-display {
             grid-row: 2 / span 4;
             grid-column: 4 / span 5;
-            background: #111;
-            border-radius: 10px;
-            padding: 5px;
+            background: #0a0a0a;
+            border-radius: 12px;
+            padding: 6px;
             border: 3px solid #ff6600;
-            box-shadow: 0 0 30px rgba(255, 100, 0, 0.25);
+            box-shadow: 0 0 40px rgba(255, 100, 0, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             aspect-ratio: 1/1;
+            transition: border-color 0.3s ease;
+        }
+
+        #main-display:hover {
+            border-color: #ff8800;
         }
 
         #main-display img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 7px;
+            border-radius: 9px;
         }
 
-        /* MODAL */
+        /* MODAL - SEXY */
         #modal {
             display: none;
             position: fixed;
@@ -489,10 +494,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.92);
+            background: rgba(0,0,0,0.95);
             justify-content: center;
             align-items: center;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(12px);
+            animation: modalFade 0.3s ease;
+        }
+
+        @keyframes modalFade {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         #modal span {
@@ -502,28 +513,42 @@
             font-size: 50px;
             color: #fff;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 300;
             transition: 0.3s;
             z-index: 10000;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
         }
 
         #modal span:hover {
             color: #ff8800;
-            transform: scale(1.2);
+            transform: rotate(90deg);
+            background: rgba(255,136,0,0.15);
         }
 
         #modal-img {
-            max-width: 85%;
-            max-height: 85%;
-            border-radius: 12px;
-            box-shadow: 0 0 60px rgba(255, 100, 0, 0.4);
+            max-width: 88%;
+            max-height: 88%;
+            border-radius: 16px;
+            box-shadow: 0 0 80px rgba(255, 100, 0, 0.5);
             border: 3px solid #ff8800;
             object-fit: contain;
+            animation: modalImgFade 0.4s ease;
+        }
+
+        @keyframes modalImgFade {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         /* ============================================
-                   MOBILE OPTIMIZATIONS - FIXED SPACING
-                   ============================================ */
+           MOBILE - GALLERY SEXY AF
+           ============================================ */
         @media (max-width: 1024px) {
             .card {
                 flex: 0 0 calc((100% - 36px) / 4);
@@ -532,7 +557,7 @@
         }
 
         @media (max-width: 768px) {
-            /* NAVBAR - more spacing */
+            /* NAVBAR */
             .navbar {
                 padding: 0 24px;
                 height: 70px;
@@ -547,7 +572,7 @@
                 font-size: 0.8rem;
             }
 
-            /* HERO - proper spacing */
+            /* HERO */
             .hero {
                 flex-direction: column;
                 height: auto;
@@ -566,76 +591,40 @@
                 height: 45vh;
                 min-height: 300px;
             }
-            .hero-badge {
-                font-size: 0.7rem;
-                margin-bottom: 12px;
-            }
             .hero-title {
                 font-size: 2.8rem;
-                margin-bottom: 16px;
-            }
-            .hero-rating {
-                font-size: 0.85rem;
-                gap: 12px;
-                margin-bottom: 20px;
             }
             .hero-description {
                 font-size: 0.9rem;
                 max-width: 100%;
-                line-height: 1.7;
-                margin-bottom: 24px;
-            }
-            .hero-buttons {
-                gap: 12px;
-                margin-bottom: 24px;
-            }
-            .btn-play, .btn-mylist {
-                padding: 12px 32px;
-                font-size: 0.9rem;
-            }
-            .hero-meta {
-                font-size: 0.85rem;
-                gap: 20px;
             }
 
             /* CONTENT ROWS */
             .row-container {
                 padding: 0 24px;
-                margin-bottom: 32px;
-            }
-            .row-title {
-                font-size: 1.3rem;
-                margin-bottom: 14px;
             }
             .card {
                 flex: 0 0 calc((100% - 20px) / 3);
                 min-width: 130px;
             }
-            .card-title {
-                font-size: 0.8rem;
-                min-height: 2rem;
-            }
-            .card-info {
-                padding: 10px 10px 8px;
-            }
 
-            /* GALLERY - proper spacing */
+            /* GALLERY - SEXY ON TABLET */
             .gallery-wrapper {
-                max-width: 600px;
+                max-width: 650px;
             }
             #gallery-container {
-                gap: 4px;
-                padding: 8px;
-                border-radius: 10px;
+                gap: 5px;
+                padding: 10px;
+                border-radius: 14px;
             }
             #main-display {
                 grid-column: 3 / span 7;
-                border-width: 2px;
-                padding: 4px;
+                border-width: 2.5px;
+                padding: 5px;
             }
             .small-img {
                 border-width: 1.5px;
-                border-radius: 4px;
+                border-radius: 6px;
             }
 
             /* FOOTER */
@@ -647,226 +636,213 @@
                 text-align: center;
                 gap: 24px;
             }
-            .footer-brand p {
-                max-width: 100%;
-            }
-            .footer-social-icons {
-                gap: 18px;
-            }
-            .footer-social-icons a {
-                width: 48px;
-                height: 48px;
-                font-size: 1.5rem;
-            }
         }
 
         @media (max-width: 480px) {
             /* NAVBAR */
             .navbar {
-                padding: 0 16px;
-                height: 60px;
+                padding: 0 14px;
+                height: 56px;
             }
             .navbar-logo {
-                height: 28px;
+                height: 26px;
             }
             .nav-links {
-                gap: 12px;
+                gap: 10px;
             }
             .nav-links li a {
-                font-size: 0.7rem;
+                font-size: 0.65rem;
                 letter-spacing: 0;
             }
 
-            /* HERO - more breathing room */
+            /* HERO */
             .hero-left {
-                padding: 32px 18px 40px;
+                padding: 28px 16px 36px;
             }
             .hero-right {
-                height: 35vh;
-                min-height: 200px;
+                height: 30vh;
+                min-height: 180px;
+            }
+            .hero-title {
+                font-size: 2rem;
             }
             .hero-badge {
                 font-size: 0.6rem;
-                margin-bottom: 10px;
-            }
-            .hero-title {
-                font-size: 2.2rem;
-                margin-bottom: 14px;
+                margin-bottom: 8px;
             }
             .hero-rating {
-                font-size: 0.75rem;
-                gap: 10px;
-                margin-bottom: 16px;
+                font-size: 0.7rem;
+                gap: 8px;
             }
             .hero-description {
-                font-size: 0.82rem;
+                font-size: 0.78rem;
                 line-height: 1.6;
-                margin-bottom: 20px;
             }
             .hero-buttons {
-                gap: 10px;
-                margin-bottom: 20px;
+                gap: 8px;
             }
             .btn-play, .btn-mylist {
-                padding: 10px 24px;
-                font-size: 0.85rem;
+                padding: 8px 20px;
+                font-size: 0.8rem;
                 flex: 1;
-                min-width: 100px;
+                min-width: 80px;
                 text-align: center;
             }
             .hero-meta {
-                font-size: 0.75rem;
-                gap: 16px;
+                font-size: 0.7rem;
+                gap: 14px;
             }
 
             /* CONTENT ROWS */
             .row-container {
-                padding: 0 16px;
-                margin-bottom: 28px;
+                padding: 0 14px;
+                margin-bottom: 24px;
             }
             .row-title {
-                font-size: 1.1rem;
-                margin-bottom: 12px;
+                font-size: 1rem;
+                margin-bottom: 10px;
             }
             .row-scroll {
-                gap: 10px;
-                padding-bottom: 8px;
+                gap: 8px;
             }
             .card {
-                flex: 0 0 calc((100% - 10px) / 2);
-                min-width: 100px;
+                flex: 0 0 calc((100% - 8px) / 2);
+                min-width: 90px;
                 border-radius: 6px;
             }
             .card-title {
-                font-size: 0.7rem;
-                min-height: 1.8rem;
+                font-size: 0.65rem;
+                min-height: 1.6rem;
             }
             .card-desc {
-                font-size: 0.6rem;
+                font-size: 0.55rem;
             }
             .card-info {
-                padding: 8px 8px 6px;
+                padding: 6px 6px 4px;
             }
 
-            /* GALLERY - much better spacing */
+            /* GALLERY - SEXY AF ON MOBILE */
             .gallery-section {
-                padding: 20px 12px 40px;
+                padding: 16px 10px 32px;
             }
             .gallery-wrapper {
-                max-width: 420px;
+                max-width: 100%;
             }
             #gallery-container {
-                gap: 3px;
-                padding: 6px;
-                border-radius: 8px;
+                gap: 4px;
+                padding: 8px;
+                border-radius: 12px;
             }
             #main-display {
                 grid-column: 2 / span 9;
-                padding: 3px;
+                padding: 4px;
                 border-width: 2px;
-                border-radius: 6px;
+                border-radius: 8px;
             }
             #main-display img {
-                border-radius: 4px;
+                border-radius: 6px;
             }
             .small-img {
-                border-width: 1px;
-                border-radius: 3px;
+                border-width: 1.5px;
+                border-radius: 5px;
             }
 
-            /* MODAL */
+            /* MODAL - SEXY */
             #modal span {
-                top: 16px;
-                right: 20px;
-                font-size: 32px;
+                top: 12px;
+                right: 14px;
+                font-size: 28px;
+                width: 44px;
+                height: 44px;
             }
             #modal-img {
-                max-width: 92%;
+                max-width: 94%;
                 max-height: 78%;
+                border-radius: 12px;
                 border-width: 2px;
             }
 
             /* FOOTER */
             .footer {
-                padding: 30px 16px 20px;
-                margin-top: 20px;
+                padding: 28px 14px 18px;
+                margin-top: 16px;
             }
             .footer-brand h3 {
-                font-size: 1.2rem;
-                margin-bottom: 8px;
+                font-size: 1.1rem;
             }
             .footer-brand p {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
                 line-height: 1.5;
             }
             .footer-social-icons {
-                gap: 14px;
+                gap: 12px;
             }
             .footer-social-icons a {
-                width: 42px;
-                height: 42px;
-                font-size: 1.2rem;
+                width: 38px;
+                height: 38px;
+                font-size: 1.1rem;
             }
             .footer-bottom {
-                margin-top: 20px;
-                padding-top: 16px;
+                margin-top: 16px;
+                padding-top: 14px;
             }
             .footer-bottom p {
-                font-size: 0.7rem;
+                font-size: 0.6rem;
             }
         }
 
         @media (max-width: 380px) {
-            .hero-left {
-                padding: 24px 14px 32px;
-            }
             .hero-title {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
             .hero-description {
-                font-size: 0.75rem;
+                font-size: 0.7rem;
             }
             .btn-play, .btn-mylist {
-                padding: 8px 16px;
-                font-size: 0.75rem;
-                min-width: 80px;
-            }
-            .hero-rating {
-                font-size: 0.65rem;
-            }
-            .hero-meta {
-                font-size: 0.65rem;
-                gap: 12px;
+                padding: 6px 14px;
+                font-size: 0.7rem;
+                min-width: 60px;
             }
             .card {
-                flex: 0 0 calc((100% - 8px) / 2);
-                min-width: 80px;
+                flex: 0 0 calc((100% - 6px) / 2);
+                min-width: 70px;
             }
             .card-title {
-                font-size: 0.6rem;
-                min-height: 1.5rem;
+                font-size: 0.55rem;
+                min-height: 1.3rem;
             }
             .card-desc {
                 font-size: 0.5rem;
             }
             .card-info {
-                padding: 6px 6px 4px;
+                padding: 4px 4px 3px;
             }
             #gallery-container {
-                gap: 2px;
-                padding: 4px;
-            }
-            .small-img {
-                border-width: 0.5px;
-                border-radius: 2px;
+                gap: 3px;
+                padding: 6px;
             }
             #main-display {
-                padding: 2px;
+                padding: 3px;
                 border-width: 1.5px;
+            }
+            .small-img {
+                border-width: 1px;
+                border-radius: 4px;
+            }
+            #modal-img {
+                max-width: 96%;
+                max-height: 72%;
+            }
+            #modal span {
+                width: 36px;
+                height: 36px;
+                font-size: 22px;
+                top: 10px;
+                right: 10px;
             }
         }
 
-        /* Landscape phone support */
+        /* Landscape */
         @media (max-height: 500px) and (orientation: landscape) {
             .hero {
                 flex-direction: row;
@@ -877,7 +853,6 @@
                 width: 50%;
                 height: 100vh;
                 padding: 30px 24px;
-                min-height: auto;
             }
             .hero-right {
                 width: 50%;
@@ -885,91 +860,52 @@
                 min-height: auto;
             }
             .hero-title {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             .hero-description {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
                 max-width: 100%;
             }
-            .hero-rating {
-                font-size: 0.75rem;
-            }
-            .hero-meta {
-                font-size: 0.75rem;
-            }
             .btn-play, .btn-mylist {
-                padding: 8px 20px;
-                font-size: 0.8rem;
-                min-width: 80px;
+                padding: 6px 16px;
+                font-size: 0.75rem;
+                min-width: 70px;
             }
             .navbar {
-                height: 56px;
-                padding: 0 20px;
+                height: 50px;
+                padding: 0 16px;
             }
             .navbar-logo {
-                height: 30px;
+                height: 28px;
             }
             .nav-links li a {
                 font-size: 0.7rem;
             }
             .row-container {
-                padding: 0 20px;
+                padding: 0 16px;
             }
             .card {
                 flex: 0 0 calc((100% - 16px) / 3);
-                min-width: 110px;
+                min-width: 100px;
             }
             .gallery-wrapper {
-                max-width: 500px;
+                max-width: 550px;
+            }
+            #gallery-container {
+                gap: 4px;
+                padding: 8px;
+            }
+            #main-display {
+                grid-column: 3 / span 7;
             }
             .footer {
-                padding: 24px 20px;
+                padding: 20px;
             }
             .footer-content {
                 flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: center;
                 gap: 16px;
-            }
-        }
-
-        @media (max-height: 400px) and (orientation: landscape) {
-            .hero-title {
-                font-size: 1.6rem;
-            }
-            .hero-description {
-                font-size: 0.7rem;
-                line-height: 1.4;
-            }
-            .hero-left {
-                padding: 20px 16px;
-            }
-            .btn-play, .btn-mylist {
-                padding: 6px 14px;
-                font-size: 0.7rem;
-                min-width: 60px;
-            }
-            .card {
-                flex: 0 0 calc((100% - 12px) / 3);
-                min-width: 90px;
-            }
-            .card-title {
-                font-size: 0.6rem;
-                min-height: 1.4rem;
-            }
-            .card-info {
-                padding: 4px 6px 3px;
-            }
-            #gallery-container {
-                gap: 2px;
-                padding: 4px;
-            }
-            #main-display {
-                padding: 2px;
-                border-width: 1.5px;
-            }
-            .small-img {
-                border-width: 0.5px;
             }
         }
     </style>
@@ -1032,10 +968,10 @@
 
     <!-- ========== CONTENT ROWS ========== -->
     <section class="content-rows" id="contentRows">
-        <!-- Rows will be injected here by JavaScript -->
+        <!-- Rows injected by JavaScript -->
     </section>
 
-    <!-- ========== GALLERY ========== -->
+    <!-- ========== GALLERY - SEXY AF ========== -->
     <section class="gallery-section">
         <div class="gallery-wrapper">
             <div id="gallery-container">
@@ -1053,47 +989,47 @@
                 <img class="small-img" src="assets/images/471250ee49c28ead8d7cdadf6b714523.jpg" style="grid-row:1; grid-column:10;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
                 <img class="small-img" src="assets/images/4e67ddb8c19dde82aa93b71b3e30606e.jpg" style="grid-row:1; grid-column:11;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
 
-                <!-- ROW 2 (left side) -->
+                <!-- ROW 2 (left) -->
                 <img class="small-img" src="assets/images/5abe47565d052148441b5c62b7dccefe.jpg" style="grid-row:2; grid-column:1;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
                 <img class="small-img" src="assets/images/5bcb228e83ff3ba79984b398afc960a0.jpg" style="grid-row:2; grid-column:2;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
                 <img class="small-img" src="assets/images/5d176eb0db51228ededcaa2485fc454c.jpg" style="grid-row:2; grid-column:3;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
 
-                <!-- ROW 2 (right side) -->
+                <!-- ROW 2 (right) -->
                 <img class="small-img" src="assets/images/5ee18288a0799b1c80533eb49284f523.jpg" style="grid-row:2; grid-column:9;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
                 <img class="small-img" src="assets/images/6ce21dfc039c371ffe0778a19df1e4c9.jpg" style="grid-row:2; grid-column:10;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
                 <img class="small-img" src="assets/images/709a1db981e78cd6dd7b7f86914b5caa.jpg" style="grid-row:2; grid-column:11;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
 
-                <!-- ROW 3 (left side) -->
+                <!-- ROW 3 (left) -->
                 <img class="small-img" src="assets/images/7984125af150b1b31d8f8e9450ab0bcb.jpg" style="grid-row:3; grid-column:1;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
                 <img class="small-img" src="assets/images/85e245c8490c6dc95d7949c66c632bce.jpg" style="grid-row:3; grid-column:2;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
                 <img class="small-img" src="assets/images/885671e7e5edccd550025d91988d425c.jpg" style="grid-row:3; grid-column:3;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
 
-                <!-- ROW 3 (right side) -->
+                <!-- ROW 3 (right) -->
                 <img class="small-img" src="assets/images/9106a5b9df2070b7ed011434c4c974b5.jpg" style="grid-row:3; grid-column:9;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
                 <img class="small-img" src="assets/images/a84c7cd9ce63af695b7adb8395c08a92.jpg" style="grid-row:3; grid-column:10;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
                 <img class="small-img" src="assets/images/ae1d38bfd2d51072f72952943566d616.jpg" style="grid-row:3; grid-column:11;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
 
-                <!-- ROW 4 (left side) -->
+                <!-- ROW 4 (left) -->
                 <img class="small-img" src="assets/images/ae68916e768e1fbcbacdde1ec3ccb864.jpg" style="grid-row:4; grid-column:1;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
                 <img class="small-img" src="assets/images/bae36d2533cec6e264232e44ad483e6f.jpg" style="grid-row:4; grid-column:2;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
                 <img class="small-img" src="assets/images/be7657b4ac7eee5b1af2ac143e76c625.jpg" style="grid-row:4; grid-column:3;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
 
-                <!-- ROW 4 (right side) -->
+                <!-- ROW 4 (right) -->
                 <img class="small-img" src="assets/images/c20ea8d24658b87d6cbdc9a8ac355dd0.jpg" style="grid-row:4; grid-column:9;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
                 <img class="small-img" src="assets/images/c712eaacd66e711977405cc66d2a8166.jpg" style="grid-row:4; grid-column:10;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
                 <img class="small-img" src="assets/images/cdc0f2064799b25823f17a0a4652d4cc.jpg" style="grid-row:4; grid-column:11;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
 
-                <!-- ROW 5 (left side) -->
+                <!-- ROW 5 (left) -->
                 <img class="small-img" src="assets/images/d482c08efae0730cd36af0249def740c.jpg" style="grid-row:5; grid-column:1;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
                 <img class="small-img" src="assets/images/d9d21a7c2410b93c5dc859208e8d16ce.jpg" style="grid-row:5; grid-column:2;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
                 <img class="small-img" src="assets/images/e0bce0831225d236c6d17358153f5559.jpg" style="grid-row:5; grid-column:3;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
 
-                <!-- ROW 5 (right side) -->
+                <!-- ROW 5 (right) -->
                 <img class="small-img" src="assets/images/efe3aaf5d313f6185f2f731a39695999.jpg" style="grid-row:5; grid-column:9;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
                 <img class="small-img" src="assets/images/f3dfcb94d2f0c84c40bd8613149d17d1.jpg" style="grid-row:5; grid-column:10;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
                 <img class="small-img" src="assets/images/fc0d02aa8c948b7a9e6d8bf665b38f56.jpg" style="grid-row:5; grid-column:11;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
 
-                <!-- ROW 6 - DUPLICATES -->
+                <!-- ROW 6 -->
                 <img class="small-img" src="assets/images/05069e569855d0b889e178298d7ad8b6.jpg" style="grid-row:6; grid-column:1;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
                 <img class="small-img" src="assets/images/19266ed88865acad7d4328bd8269974f.jpg" style="grid-row:6; grid-column:2;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
                 <img class="small-img" src="assets/images/29e7a50248a7d27734428ee0d92eae69.jpg" style="grid-row:6; grid-column:3;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
@@ -1106,13 +1042,13 @@
                 <img class="small-img" src="assets/images/471250ee49c28ead8d7cdadf6b714523.jpg" style="grid-row:6; grid-column:10;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
                 <img class="small-img" src="assets/images/4e67ddb8c19dde82aa93b71b3e30606e.jpg" style="grid-row:6; grid-column:11;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
 
-                <!-- MAIN DISPLAY (CENTER) -->
+                <!-- MAIN DISPLAY -->
                 <div id="main-display">
                     <img id="main-img" src="assets/images/05069e569855d0b889e178298d7ad8b6.jpg" alt="Samay Raina">
                 </div>
 
-            </div><!-- end gallery-container -->
-        </div><!-- end gallery-wrapper -->
+            </div>
+        </div>
     </section>
 
     <!-- MODAL -->
@@ -1122,7 +1058,7 @@
     </div>
 
     <script>
-        // ========== GALLERY FUNCTIONS ==========
+        // ========== GALLERY ==========
         function showMain(src) {
             document.getElementById('main-img').src = src;
         }
@@ -1142,7 +1078,7 @@
             if (e.key === 'Escape') closeModal();
         });
 
-        // ========== CONTENT ROWS LOADER ==========
+        // ========== CONTENT ROWS ==========
         (function() {
             const container = document.getElementById('contentRows');
 

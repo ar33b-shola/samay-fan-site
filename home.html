@@ -135,8 +135,8 @@
         .gallery-section { width:100%; display:flex; justify-content:center; padding:30px 20px 50px; background:#141414; }
         .gallery-wrapper { display:flex; justify-content:center; width:100%; max-width:900px; }
         #gallery-container {
-            display:grid; grid-template-columns:repeat(11,1fr); gap:6px;
-            background:#1a1a1a; padding:12px; border-radius:16px;
+            display:grid; grid-template-columns:repeat(11,1fr); gap:8px;
+            background:#1a1a1a; padding:16px; border-radius:16px;
             box-shadow:0 0 40px rgba(255,100,0,.15); width:100%; position:relative;
         }
         .small-img {
@@ -155,6 +155,18 @@
         }
         #main-display:hover { border-color:#ff8800; }
         #main-display img { width:100%; height:100%; object-fit:cover; border-radius:9px; }
+        /* gallery header */
+        .gallery-header {
+            text-align: center; margin-bottom: 20px; width: 100%;
+        }
+        .gallery-header h2 {
+            font-size: 2.2rem; font-weight: 700; color: #fff; letter-spacing: 1px;
+            text-shadow: 0 0 30px rgba(255,136,0,0.2);
+        }
+        .gallery-header p {
+            color: #888; font-size: 0.85rem; margin-top: 6px; font-weight: 300;
+            letter-spacing: 0.5px;
+        }
         /* modal */
         #modal {
             display:none; position:fixed; z-index:9999; top:0; left:0;
@@ -212,6 +224,8 @@
             #main-display { display:none; }
             .footer { padding:40px 24px 24px; }
             .footer-content { flex-direction:column; text-align:center; gap:24px; }
+            .gallery-header h2 { font-size: 1.6rem; }
+            .gallery-header p { font-size: 0.75rem; }
         }
         @media (max-width:480px) {
             .navbar { padding:0 14px; height:56px; }
@@ -247,6 +261,8 @@
             .footer-social-icons a { width:38px; height:38px; font-size:1.1rem; }
             .footer-bottom { margin-top:16px; padding-top:14px; }
             .footer-bottom p { font-size:.6rem; }
+            .gallery-header h2 { font-size: 1.3rem; }
+            .gallery-header p { font-size: 0.65rem; }
         }
         @media (max-width:380px) {
             .hero-title { font-size:1.6rem; }
@@ -341,7 +357,11 @@
 <section class="content-rows" id="contentRows"></section>
 <!-- gallery -->
 <section class="gallery-section">
-    <div class="gallery-wrapper">
+    <div class="gallery-wrapper" style="flex-direction:column; align-items:center;">
+        <div class="gallery-header">
+            <h2>Wallpapers</h2>
+            <p>best viewed on desktop · click any image to expand</p>
+        </div>
         <div id="gallery-container"></div>
     </div>
 </section>

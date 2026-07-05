@@ -548,7 +548,7 @@
         }
 
         /* ============================================
-           MOBILE - GALLERY SWIPEABLE CAROUSEL
+           MOBILE - TINDER STYLE SWIPE GALLERY
            ============================================ */
         @media (max-width: 1024px) {
             .card {
@@ -558,7 +558,7 @@
         }
 
         @media (max-width: 768px) {
-            /* NAVBAR - more space */
+            /* NAVBAR */
             .navbar {
                 padding: 0 24px;
                 height: 70px;
@@ -610,7 +610,7 @@
                 min-width: 130px;
             }
 
-            /* GALLERY - SWIPEABLE CAROUSEL */
+            /* GALLERY - TINDER STYLE SWIPE */
             .gallery-section {
                 padding: 20px 0 40px 0;
             }
@@ -620,37 +620,132 @@
             }
             #gallery-container {
                 display: flex;
-                gap: 12px;
-                overflow-x: auto;
-                overflow-y: hidden;
-                padding: 12px 8px;
-                border-radius: 12px;
-                scroll-behavior: smooth;
-                -ms-overflow-style: none;
-                scrollbar-width: none;
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+                padding: 0;
+                border-radius: 0;
                 background: transparent;
                 box-shadow: none;
                 grid-template-columns: none;
-            }
-            #gallery-container::-webkit-scrollbar {
-                display: none;
+                position: relative;
+                height: 60vh;
+                min-height: 400px;
+                justify-content: center;
             }
 
             .small-img {
-                flex: 0 0 calc((100% - 24px) / 3);
-                min-width: 100px;
+                display: none;
+                width: 100%;
+                max-width: 500px;
+                height: auto;
                 aspect-ratio: 1/1;
-                border-radius: 8px;
-                border: 2px solid #333;
-                transition: transform 0.3s ease, border-color 0.3s ease;
+                object-fit: cover;
+                border-radius: 16px;
+                border: 3px solid #333;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+                cursor: grab;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0.9);
+                opacity: 0;
+            }
+
+            .small-img.active {
+                display: block;
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+                z-index: 10;
+            }
+
+            .small-img.prev {
+                display: block;
+                transform: translate(-50%, -50%) scale(0.85);
+                opacity: 0.3;
+                z-index: 5;
+            }
+
+            .small-img.next {
+                display: block;
+                transform: translate(-50%, -50%) scale(0.85);
+                opacity: 0.3;
+                z-index: 5;
             }
 
             .small-img:active {
-                transform: scale(0.92);
+                cursor: grabbing;
             }
 
-            #main-display {
-                display: none;
+            /* Swipe indicators */
+            .swipe-indicators {
+                display: flex;
+                gap: 8px;
+                justify-content: center;
+                margin-top: 20px;
+                z-index: 20;
+                position: relative;
+            }
+
+            .swipe-dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: #555;
+                transition: background 0.3s ease, transform 0.3s ease;
+                cursor: pointer;
+            }
+
+            .swipe-dot.active {
+                background: #ff8800;
+                transform: scale(1.3);
+            }
+
+            .swipe-counter {
+                color: #888;
+                font-size: 0.8rem;
+                text-align: center;
+                margin-top: 12px;
+                font-weight: 300;
+                position: relative;
+                z-index: 20;
+            }
+
+            /* Swipe arrows */
+            .swipe-arrows {
+                display: flex;
+                justify-content: center;
+                gap: 40px;
+                margin-top: 16px;
+                position: relative;
+                z-index: 20;
+            }
+
+            .swipe-arrow {
+                background: rgba(255,255,255,0.08);
+                border: 1px solid #333;
+                color: #fff;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                font-size: 1.2rem;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .swipe-arrow:hover {
+                background: rgba(255,136,0,0.2);
+                border-color: #ff8800;
+                color: #ff8800;
+            }
+
+            .swipe-arrow:active {
+                transform: scale(0.9);
             }
 
             /* FOOTER */
@@ -665,7 +760,6 @@
         }
 
         @media (max-width: 480px) {
-            /* NAVBAR */
             .navbar {
                 padding: 0 14px;
                 height: 56px;
@@ -682,7 +776,6 @@
                 letter-spacing: 0;
             }
 
-            /* HERO - image upar */
             .hero-right {
                 height: 32vh;
                 min-height: 200px;
@@ -720,7 +813,6 @@
                 gap: 12px;
             }
 
-            /* CONTENT ROWS */
             .row-container {
                 padding: 0 14px;
                 margin-bottom: 24px;
@@ -748,40 +840,28 @@
                 padding: 6px 6px 4px;
             }
 
-            /* GALLERY - SWIPEABLE */
-            .gallery-section {
-                padding: 16px 0 32px 0;
-            }
-            .gallery-wrapper {
-                padding: 0 12px;
-            }
             #gallery-container {
-                gap: 10px;
-                padding: 10px 6px;
+                height: 50vh;
+                min-height: 320px;
             }
             .small-img {
-                flex: 0 0 calc((100% - 20px) / 3);
-                min-width: 80px;
-                border-radius: 6px;
-                border-width: 1.5px;
-            }
-
-            /* MODAL */
-            #modal span {
-                top: 12px;
-                right: 14px;
-                font-size: 28px;
-                width: 44px;
-                height: 44px;
-            }
-            #modal-img {
-                max-width: 94%;
-                max-height: 78%;
+                max-width: 100%;
                 border-radius: 12px;
                 border-width: 2px;
             }
+            .swipe-arrow {
+                width: 42px;
+                height: 42px;
+                font-size: 1rem;
+            }
+            .swipe-arrows {
+                gap: 30px;
+            }
+            .swipe-dot {
+                width: 6px;
+                height: 6px;
+            }
 
-            /* FOOTER */
             .footer {
                 padding: 28px 14px 18px;
                 margin-top: 16px;
@@ -836,16 +916,19 @@
             .card-info {
                 padding: 4px 4px 3px;
             }
-            .small-img {
-                flex: 0 0 calc((100% - 16px) / 3);
-                min-width: 65px;
-                border-radius: 5px;
-            }
             #gallery-container {
-                gap: 8px;
-                padding: 8px 4px;
+                height: 45vh;
+                min-height: 280px;
             }
-            #modal-img {
+            .swipe-arrow {
+                width: 36px;
+                height: 36px;
+                font-size: 0.8rem;
+            }
+            .swipe-arrows {
+                gap: 24px;
+            }
+            .modal-img {
                 max-width: 96%;
                 max-height: 72%;
             }
@@ -905,12 +988,12 @@
                 flex: 0 0 calc((100% - 16px) / 3);
                 min-width: 100px;
             }
-            .gallery-wrapper {
-                padding: 0 16px;
+            #gallery-container {
+                height: 70vh;
+                min-height: 300px;
             }
             .small-img {
-                flex: 0 0 calc((100% - 20px) / 4);
-                min-width: 80px;
+                max-width: 400px;
             }
             .footer {
                 padding: 20px;
@@ -989,7 +1072,7 @@
     <section class="gallery-section">
         <div class="gallery-wrapper">
             <div id="gallery-container">
-                <!-- All images will be rendered by JS for mobile swipe -->
+                <!-- Images rendered by JS -->
             </div>
         </div>
     </section>
@@ -1001,7 +1084,7 @@
     </div>
 
     <script>
-        // ========== GALLERY IMAGES ARRAY ==========
+        // ========== GALLERY IMAGES ==========
         const galleryImages = [
             "assets/images/05069e569855d0b889e178298d7ad8b6.jpg",
             "assets/images/19266ed88865acad7d4328bd8269974f.jpg",
@@ -1040,24 +1123,60 @@
             "assets/images/fc0d02aa8c948b7a9e6d8bf665b38f56.jpg"
         ];
 
+        let currentIndex = 0;
+        let touchStartX = 0;
+        let touchEndX = 0;
+
         // ========== RENDER GALLERY ==========
         function renderGallery() {
             const container = document.getElementById('gallery-container');
             const isMobile = window.innerWidth <= 768;
 
             if (isMobile) {
-                // MOBILE: Swipeable carousel
+                // MOBILE: Tinder style swipe
                 let html = '';
-                galleryImages.forEach(src => {
-                    html += `
-                        <img class="small-img" src="${src}" alt="Samay Raina" 
-                             onclick="openModal('${src}')" 
-                             onerror="this.style.display='none'" />
-                    `;
+                galleryImages.forEach((src, index) => {
+                    let className = 'small-img';
+                    if (index === 0) className += ' active';
+                    else if (index === 1) className += ' next';
+                    else if (index === galleryImages.length - 1) className += ' prev';
+                    html += `<img class="${className}" src="${src}" alt="Samay Raina" data-index="${index}" onclick="openModal('${src}')" onerror="this.style.display='none'" />`;
                 });
+
+                html += `
+                    <div class="swipe-indicators" id="swipeIndicators">
+                        ${galleryImages.map((_, i) => `<div class="swipe-dot ${i === 0 ? 'active' : ''}" data-index="${i}" onclick="goToImage(${i})"></div>`).join('')}
+                    </div>
+                    <div class="swipe-counter" id="swipeCounter">1 / ${galleryImages.length}</div>
+                    <div class="swipe-arrows">
+                        <button class="swipe-arrow" onclick="prevImage()"><i class="fas fa-chevron-left"></i></button>
+                        <button class="swipe-arrow" onclick="nextImage()"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                `;
+
                 container.innerHTML = html;
+
+                // Touch events for swipe
+                const images = container.querySelectorAll('.small-img');
+                images.forEach(img => {
+                    img.addEventListener('touchstart', (e) => {
+                        touchStartX = e.changedTouches[0].screenX;
+                    }, { passive: true });
+
+                    img.addEventListener('touchend', (e) => {
+                        touchEndX = e.changedTouches[0].screenX;
+                        handleSwipe();
+                    }, { passive: true });
+                });
+
+                // Keyboard support
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') prevImage();
+                    if (e.key === 'ArrowRight') nextImage();
+                });
+
             } else {
-                // DESKTOP: Grid with main display
+                // DESKTOP: Grid
                 let html = '';
                 // Row 1
                 for (let i = 0; i < 11 && i < galleryImages.length; i++) {
@@ -1108,6 +1227,65 @@
                 `;
 
                 container.innerHTML = html;
+            }
+        }
+
+        // ========== SWIPE FUNCTIONS ==========
+        function handleSwipe() {
+            const threshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (diff > threshold) {
+                nextImage();
+            } else if (diff < -threshold) {
+                prevImage();
+            }
+        }
+
+        function goToImage(index) {
+            currentIndex = index;
+            updateGallery();
+        }
+
+        function nextImage() {
+            if (currentIndex < galleryImages.length - 1) {
+                currentIndex++;
+                updateGallery();
+            }
+        }
+
+        function prevImage() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateGallery();
+            }
+        }
+
+        function updateGallery() {
+            const container = document.getElementById('gallery-container');
+            const images = container.querySelectorAll('.small-img');
+            
+            images.forEach((img, index) => {
+                img.classList.remove('active', 'prev', 'next');
+                if (index === currentIndex) {
+                    img.classList.add('active');
+                } else if (index === currentIndex - 1 || (currentIndex === 0 && index === galleryImages.length - 1)) {
+                    img.classList.add('prev');
+                } else if (index === currentIndex + 1 || (currentIndex === galleryImages.length - 1 && index === 0)) {
+                    img.classList.add('next');
+                }
+            });
+
+            // Update dots
+            const dots = container.querySelectorAll('.swipe-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+
+            // Update counter
+            const counter = document.getElementById('swipeCounter');
+            if (counter) {
+                counter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
             }
         }
 
@@ -1210,7 +1388,7 @@
             loadContent();
         })();
 
-        // ========== INIT GALLERY ==========
+        // ========== INIT ==========
         renderGallery();
         window.addEventListener('resize', renderGallery);
     </script>

@@ -548,7 +548,7 @@
         }
 
         /* ============================================
-           MOBILE - TINDER STYLE SWIPE GALLERY
+           MOBILE - TINDER STYLE SWIPE (RANDOM)
            ============================================ */
         @media (max-width: 1024px) {
             .card {
@@ -558,7 +558,6 @@
         }
 
         @media (max-width: 768px) {
-            /* NAVBAR */
             .navbar {
                 padding: 0 24px;
                 height: 70px;
@@ -574,7 +573,6 @@
                 font-size: 0.8rem;
             }
 
-            /* HERO - image upar */
             .hero {
                 flex-direction: column-reverse;
                 height: auto;
@@ -601,7 +599,6 @@
                 max-width: 100%;
             }
 
-            /* CONTENT ROWS */
             .row-container {
                 padding: 0 24px;
             }
@@ -610,13 +607,13 @@
                 min-width: 130px;
             }
 
-            /* GALLERY - TINDER STYLE SWIPE */
+            /* GALLERY - TINDER STYLE */
             .gallery-section {
                 padding: 20px 0 40px 0;
             }
             .gallery-wrapper {
                 max-width: 100%;
-                padding: 0 16px;
+                padding: 0;
             }
             #gallery-container {
                 display: flex;
@@ -632,24 +629,25 @@
                 height: 60vh;
                 min-height: 400px;
                 justify-content: center;
+                background: #0a0a0a;
             }
 
             .small-img {
                 display: none;
-                width: 100%;
+                width: 92%;
                 max-width: 500px;
                 height: auto;
                 aspect-ratio: 1/1;
                 object-fit: cover;
                 border-radius: 16px;
-                border: 3px solid #333;
-                box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+                border: 3px solid #2a2a2a;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.8);
                 cursor: grab;
-                transition: transform 0.3s ease, opacity 0.3s ease;
+                transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1), opacity 0.4s ease, border-color 0.3s ease;
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%, -50%) scale(0.9);
+                transform: translate(-50%, -50%) scale(0.85);
                 opacity: 0;
             }
 
@@ -658,97 +656,83 @@
                 transform: translate(-50%, -50%) scale(1);
                 opacity: 1;
                 z-index: 10;
-            }
-
-            .small-img.prev {
-                display: block;
-                transform: translate(-50%, -50%) scale(0.85);
-                opacity: 0.3;
-                z-index: 5;
-            }
-
-            .small-img.next {
-                display: block;
-                transform: translate(-50%, -50%) scale(0.85);
-                opacity: 0.3;
-                z-index: 5;
+                border-color: #ff6600;
             }
 
             .small-img:active {
                 cursor: grabbing;
             }
 
-            /* Swipe indicators */
-            .swipe-indicators {
-                display: flex;
-                gap: 8px;
-                justify-content: center;
-                margin-top: 20px;
-                z-index: 20;
-                position: relative;
-            }
-
-            .swipe-dot {
-                width: 8px;
-                height: 8px;
-                border-radius: 50%;
-                background: #555;
-                transition: background 0.3s ease, transform 0.3s ease;
-                cursor: pointer;
-            }
-
-            .swipe-dot.active {
-                background: #ff8800;
-                transform: scale(1.3);
-            }
-
-            .swipe-counter {
-                color: #888;
-                font-size: 0.8rem;
-                text-align: center;
-                margin-top: 12px;
-                font-weight: 300;
-                position: relative;
-                z-index: 20;
-            }
-
-            /* Swipe arrows */
+            /* Swipe arrows - sexy floating */
             .swipe-arrows {
                 display: flex;
-                justify-content: center;
-                gap: 40px;
-                margin-top: 16px;
-                position: relative;
+                justify-content: space-between;
+                width: 92%;
+                max-width: 500px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
                 z-index: 20;
+                pointer-events: none;
+                padding: 0 10px;
             }
 
             .swipe-arrow {
-                background: rgba(255,255,255,0.08);
-                border: 1px solid #333;
+                pointer-events: auto;
+                background: rgba(0,0,0,0.6);
+                backdrop-filter: blur(8px);
+                border: 1px solid rgba(255,255,255,0.15);
                 color: #fff;
-                width: 50px;
-                height: 50px;
+                width: 48px;
+                height: 48px;
                 border-radius: 50%;
-                font-size: 1.2rem;
+                font-size: 1.1rem;
                 cursor: pointer;
                 transition: all 0.3s ease;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 -webkit-tap-highlight-color: transparent;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.4);
             }
 
             .swipe-arrow:hover {
-                background: rgba(255,136,0,0.2);
+                background: rgba(255,136,0,0.25);
                 border-color: #ff8800;
                 color: #ff8800;
+                transform: scale(1.05);
             }
 
             .swipe-arrow:active {
                 transform: scale(0.9);
             }
 
-            /* FOOTER */
+            /* Swipe hint text */
+            .swipe-hint {
+                position: absolute;
+                bottom: 30px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 20;
+                color: #666;
+                font-size: 0.75rem;
+                font-weight: 300;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                background: rgba(0,0,0,0.5);
+                padding: 8px 20px;
+                border-radius: 20px;
+                border: 1px solid rgba(255,255,255,0.05);
+                backdrop-filter: blur(4px);
+                white-space: nowrap;
+            }
+
+            .swipe-hint i {
+                margin: 0 6px;
+                color: #888;
+            }
+
             .footer {
                 padding: 40px 24px 24px;
             }
@@ -842,24 +826,22 @@
 
             #gallery-container {
                 height: 50vh;
-                min-height: 320px;
+                min-height: 340px;
             }
             .small-img {
-                max-width: 100%;
-                border-radius: 12px;
+                width: 90%;
+                border-radius: 14px;
                 border-width: 2px;
             }
             .swipe-arrow {
-                width: 42px;
-                height: 42px;
-                font-size: 1rem;
+                width: 40px;
+                height: 40px;
+                font-size: 0.9rem;
             }
-            .swipe-arrows {
-                gap: 30px;
-            }
-            .swipe-dot {
-                width: 6px;
-                height: 6px;
+            .swipe-hint {
+                font-size: 0.65rem;
+                padding: 6px 16px;
+                bottom: 20px;
             }
 
             .footer {
@@ -921,16 +903,14 @@
                 min-height: 280px;
             }
             .swipe-arrow {
-                width: 36px;
-                height: 36px;
+                width: 34px;
+                height: 34px;
                 font-size: 0.8rem;
             }
-            .swipe-arrows {
-                gap: 24px;
-            }
-            .modal-img {
-                max-width: 96%;
-                max-height: 72%;
+            .swipe-hint {
+                font-size: 0.55rem;
+                padding: 4px 12px;
+                bottom: 16px;
             }
             #modal span {
                 width: 36px;
@@ -938,6 +918,10 @@
                 font-size: 22px;
                 top: 10px;
                 right: 10px;
+            }
+            #modal-img {
+                max-width: 96%;
+                max-height: 72%;
             }
         }
 
@@ -993,7 +977,13 @@
                 min-height: 300px;
             }
             .small-img {
+                width: 70%;
                 max-width: 400px;
+            }
+            .swipe-arrow {
+                width: 36px;
+                height: 36px;
+                font-size: 0.8rem;
             }
             .footer {
                 padding: 20px;
@@ -1125,54 +1115,65 @@
 
         let currentIndex = 0;
         let touchStartX = 0;
-        let touchEndX = 0;
+        let isMobile = false;
 
         // ========== RENDER GALLERY ==========
         function renderGallery() {
             const container = document.getElementById('gallery-container');
-            const isMobile = window.innerWidth <= 768;
+            isMobile = window.innerWidth <= 768;
 
             if (isMobile) {
-                // MOBILE: Tinder style swipe
+                // MOBILE: Tinder style - random swipe
                 let html = '';
                 galleryImages.forEach((src, index) => {
                     let className = 'small-img';
                     if (index === 0) className += ' active';
-                    else if (index === 1) className += ' next';
-                    else if (index === galleryImages.length - 1) className += ' prev';
                     html += `<img class="${className}" src="${src}" alt="Samay Raina" data-index="${index}" onclick="openModal('${src}')" onerror="this.style.display='none'" />`;
                 });
 
                 html += `
-                    <div class="swipe-indicators" id="swipeIndicators">
-                        ${galleryImages.map((_, i) => `<div class="swipe-dot ${i === 0 ? 'active' : ''}" data-index="${i}" onclick="goToImage(${i})"></div>`).join('')}
-                    </div>
-                    <div class="swipe-counter" id="swipeCounter">1 / ${galleryImages.length}</div>
                     <div class="swipe-arrows">
-                        <button class="swipe-arrow" onclick="prevImage()"><i class="fas fa-chevron-left"></i></button>
-                        <button class="swipe-arrow" onclick="nextImage()"><i class="fas fa-chevron-right"></i></button>
+                        <button class="swipe-arrow" onclick="nextRandom()"><i class="fas fa-chevron-left"></i></button>
+                        <button class="swipe-arrow" onclick="nextRandom()"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="swipe-hint">
+                        <i class="fas fa-arrows-left-right"></i> SWIPE OR TAP <i class="fas fa-arrows-left-right"></i>
                     </div>
                 `;
 
                 container.innerHTML = html;
 
-                // Touch events for swipe
+                // Touch events
                 const images = container.querySelectorAll('.small-img');
-                images.forEach(img => {
-                    img.addEventListener('touchstart', (e) => {
-                        touchStartX = e.changedTouches[0].screenX;
-                    }, { passive: true });
+                const containerElem = container;
 
-                    img.addEventListener('touchend', (e) => {
-                        touchEndX = e.changedTouches[0].screenX;
-                        handleSwipe();
-                    }, { passive: true });
+                containerElem.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                }, { passive: true });
+
+                containerElem.addEventListener('touchend', (e) => {
+                    const touchEndX = e.changedTouches[0].screenX;
+                    const diff = touchStartX - touchEndX;
+                    if (Math.abs(diff) > 30) {
+                        nextRandom();
+                    }
+                }, { passive: true });
+
+                // Click on image also goes to next
+                images.forEach(img => {
+                    img.addEventListener('click', (e) => {
+                        if (!e.target.closest('.swipe-arrow')) {
+                            nextRandom();
+                        }
+                    });
                 });
 
                 // Keyboard support
                 document.addEventListener('keydown', (e) => {
-                    if (e.key === 'ArrowLeft') prevImage();
-                    if (e.key === 'ArrowRight') nextImage();
+                    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === ' ') {
+                        e.preventDefault();
+                        nextRandom();
+                    }
                 });
 
             } else {
@@ -1230,63 +1231,26 @@
             }
         }
 
-        // ========== SWIPE FUNCTIONS ==========
-        function handleSwipe() {
-            const threshold = 50;
-            const diff = touchStartX - touchEndX;
-
-            if (diff > threshold) {
-                nextImage();
-            } else if (diff < -threshold) {
-                prevImage();
-            }
+        // ========== RANDOM NEXT ==========
+        function nextRandom() {
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * galleryImages.length);
+            } while (randomIndex === currentIndex && galleryImages.length > 1);
+            currentIndex = randomIndex;
+            updateImage();
         }
 
-        function goToImage(index) {
-            currentIndex = index;
-            updateGallery();
-        }
-
-        function nextImage() {
-            if (currentIndex < galleryImages.length - 1) {
-                currentIndex++;
-                updateGallery();
-            }
-        }
-
-        function prevImage() {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateGallery();
-            }
-        }
-
-        function updateGallery() {
+        function updateImage() {
             const container = document.getElementById('gallery-container');
             const images = container.querySelectorAll('.small-img');
             
             images.forEach((img, index) => {
-                img.classList.remove('active', 'prev', 'next');
+                img.classList.remove('active');
                 if (index === currentIndex) {
                     img.classList.add('active');
-                } else if (index === currentIndex - 1 || (currentIndex === 0 && index === galleryImages.length - 1)) {
-                    img.classList.add('prev');
-                } else if (index === currentIndex + 1 || (currentIndex === galleryImages.length - 1 && index === 0)) {
-                    img.classList.add('next');
                 }
             });
-
-            // Update dots
-            const dots = container.querySelectorAll('.swipe-dot');
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentIndex);
-            });
-
-            // Update counter
-            const counter = document.getElementById('swipeCounter');
-            if (counter) {
-                counter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
-            }
         }
 
         // ========== GALLERY FUNCTIONS ==========
@@ -1417,6 +1381,6 @@
             <p>&copy; 2026 Areeb. Made with ❤️ by Mohammad Areeb Hussain Shola.</p>
         </div>
     </footer>
-<!--- X --->
+
 </body>
 </html>

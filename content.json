@@ -1,23 +1,6 @@
 {
   "categories": [
     {
-      "title": "India's Got Latent • Season 2",
-      "items": [
-        {
-          "title": "INDIA'S GOT LATENT S2 EP1 ft. Alia Bhatt, Sharvari, Ashish Solanki",
-          "youtubeId": "eHTXQW58WhA",
-          "url": "https://www.youtube.com/watch?v=eHTXQW58WhA",
-          "description": "Season 2 begins with Alia Bhatt, Sharvari and Ashish Solanki."
-        },
-        {
-          "title": "INDIA'S GOT LATENT S2 EP2 ft. Harssh Limbachiya, Kiku Sharda, Chandan Prabhakar",
-          "youtubeId": "c35fpGWqXnk",
-          "url": "https://www.youtube.com/watch?v=c35fpGWqXnk",
-          "description": "Featuring Harssh Limbachiya, Kiku Sharda and Chandan Prabhakar."
-        }
-      ]
-    },
-    {
       "title": "Developer's Favourite",
       "items": [
         {
@@ -31,6 +14,18 @@
           "youtubeId": "jqUdnuxQijs",
           "url": "https://www.youtube.com/watch?v=jqUdnuxQijs",
           "description": "A long-form conversation covering comedy, life and creativity."
+        },
+        {
+          "title": "INDIA'S GOT LATENT S2 EP1 ft. Alia Bhatt, Sharvari, Ashish Solanki",
+          "youtubeId": "eHTXQW58WhA",
+          "url": "https://www.youtube.com/watch?v=eHTXQW58WhA",
+          "description": "Season 2 begins with Alia Bhatt, Sharvari and Ashish Solanki."
+        },
+        {
+          "title": "INDIA'S GOT LATENT S2 EP2 ft. Harssh Limbachiya, Kiku Sharda, Chandan Prabhakar",
+          "youtubeId": "c35fpGWqXnk",
+          "url": "https://www.youtube.com/watch?v=c35fpGWqXnk",
+          "description": "Featuring Harssh Limbachiya, Kiku Sharda and Chandan Prabhakar."
         }
       ]
     }

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Samay Raina</title>
+    <style>
+        /* Reset & base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        /* DISCLAIMER PAGE */
+        #disclaimer {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        #disclaimer.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .disclaimer-content {
+            max-width: 600px;
+            padding: 40px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .disclaimer-content h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .disclaimer-content p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #aaa;
+            margin-bottom: 18px;
+            font-weight: 300;
+        }
+
+        .disclaimer-content p strong {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .disclaimer-content .highlight {
+            color: #E50914;
+        }
+
+        .disclaimer-btn {
+            background: #E50914;
+            color: #fff;
+            border: none;
+            padding: 14px 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            margin-top: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .disclaimer-btn:hover {
+            background: #b20710;
+        }
+
+        /* Intro container */
+        #intro {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        #intro.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Logo wrapper */
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 220px;
+            height: 220px;
+            opacity: 0;
+            /* animation removed from here - will be added via JS */
+        }
+
+        .logo-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Netflix-style intro - longer pause, faster zoom */
+        @keyframes netflixIntro {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            10% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            40% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(3.5);
+            }
+        }
+
+        /* Animation class that will be added via JS */
+        .logo-wrapper.animate {
+            animation: netflixIntro 3.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- DISCLAIMER PAGE -->
+    <div id="disclaimer">
+        <div class="disclaimer-content">
+            <h1>Disclaimer</h1>
+            <p>
+                This website has been developed by <strong>Areeb</strong> as a fan project.
+            </p>
+            <p>
+                It is <strong>not an official website</strong> and is <strong>not affiliated with Samay Raina, Netflix, or any of their companies or representatives.</strong>
+            </p>
+            <p>
+                All trademarks, logos, and brand names belong to their respective owners.
+            </p>
+            <p>
+                By continuing, you acknowledge that this is an unofficial fan experience created for entertainment and educational purposes only.
+            </p>
+            <button class="disclaimer-btn" id="continueBtn">I Understand, Continue</button>
+        </div>
+    </div>
+
+    <!-- INTRO OVERLAY -->
+    <div id="intro">
+        <div class="logo-wrapper" id="logoWrapper">
+            <img
+                src="https://raw.githubusercontent.com/ar33b-shola/samay-fan-site/refs/heads/main/assets/logo.png"
+                alt="Samay Raina"
+                onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:#E50914;font-size:3rem;font-weight:bold;letter-spacing:4px;\'>SAMAY RAINA</span>';"
+            />
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            'use strict';
+
+            const intro = document.getElementById('intro');
+            const disclaimer = document.getElementById('disclaimer');
+            const continueBtn = document.getElementById('continueBtn');
+            const logoWrapper = document.getElementById('logoWrapper');
+
+            // --- AUDIO - Preload immediately ---
+            const audio = new Audio();
+            audio.src = 'https://github.com/ar33b-shola/samay-fan-site/raw/refs/heads/main/assets/thud.mp3';
+            audio.preload = 'auto';
+            audio.volume = 0.9;
+            // Load the audio in background
+            audio.load();
+
+            let hasStarted = false;
+
+            // --- TRANSITION TO NEXT SCREEN ---
+            function goToNextScreen() {
+                // Fade out intro
+                intro.classList.add('hidden');
+
+                // Stop audio if playing
+                audio.pause();
+                audio.currentTime = 0;
+
+                // After fade, show "Who's watching?" screen
+                setTimeout(function() {
+                    document.body.innerHTML = `
+                        <div style="
+                            background: #141414;
+                            color: #fff;
+                            height: 100vh;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            font-family: 'Helvetica Neue', Arial, sans-serif;
+                        ">
+                            <h1 style="font-size: 3rem; font-weight: 300; margin-bottom: 2rem;">Who's watching?</h1>
+                            <div style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;">
+                                <div style="text-align: center; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                                    <div style="width: 120px; height: 120px; background: #333; border-radius: 8px; margin-bottom: 0.5rem;"></div>
+                                    <span style="color: #808080;">Profile 1</span>
+                                </div>
+                                <div style="text-align: center; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                                    <div style="width: 120px; height: 120px; background: #444; border-radius: 8px; margin-bottom: 0.5rem;"></div>
+                                    <span style="color: #808080;">Profile 2</span>
+                                </div>
+                                <div style="text-align: center; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                                    <div style="width: 120px; height: 120px; background: #555; border-radius: 8px; margin-bottom: 0.5rem;"></div>
+                                    <span style="color: #808080;">Profile 3</span>
+                                </div>
+                            </div>
+                            <button style="
+                                margin-top: 2.5rem;
+                                background: transparent;
+                                color: #808080;
+                                border: 1px solid #808080;
+                                padding: 10px 40px;
+                                font-size: 1rem;
+                                cursor: pointer;
+                                border-radius: 4px;
+                                transition: all 0.2s;
+                            " onmouseover="this.style.color='#fff';this.style.borderColor='#fff'" onmouseout="this.style.color='#808080';this.style.borderColor='#808080'">
+                                Manage Profiles
+                            </button>
+                        </div>
+                    `;
+                }, 600);
+            }
+
+            // --- START INTRO TIMELINE ---
+            function startIntro() {
+                if (hasStarted) return;
+                hasStarted = true;
+
+                // Trigger the animation by adding the class
+                logoWrapper.classList.add('animate');
+
+                // Play sound immediately
+                audio.currentTime = 0;
+                audio.play().catch(function(e) {
+                    console.log('Audio play failed:', e);
+                });
+
+                // Auto-transition after 3.5 seconds (matches animation duration)
+                setTimeout(function() {
+                    goToNextScreen();
+                }, 3500);
+            }
+
+            // --- DISCLAIMER CONTINUE BUTTON ---
+            continueBtn.addEventListener('click', function() {
+                // Hide disclaimer
+                disclaimer.classList.add('hidden');
+                
+                // Start the intro after disclaimer fades out
+                setTimeout(function() {
+                    startIntro();
+                }, 500);
+            });
+
+            console.log('Netflix-style intro ready - longer pause, faster zoom');
+        })();
+    </script>
+
+</body>
+</html>

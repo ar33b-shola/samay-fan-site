@@ -1,0 +1,282 @@
+{
+  "site": {
+    "title": "Samay Raina Fan Site",
+    "author": "Areeb",
+    "version": "1.0"
+  },
+
+  "categories": [
+    {
+      "title": "The Beginning",
+      "folder": "beginning",
+      "items": [
+        {
+          "id": "first-step",
+          "title": "The First Step",
+          "image": "first-step.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "Every journey starts somewhere."
+        },
+        {
+          "id": "college-days",
+          "title": "College Days",
+          "image": "college-days.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "Long before the spotlight."
+        }
+      ]
+    },
+
+    {
+      "title": "Open Mics",
+      "folder": "open-mics",
+      "items": [
+        {
+          "id": "first-open-mic",
+          "title": "First Open Mic",
+          "image": "first-open-mic.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "The beginning of the laughs."
+        },
+        {
+          "id": "bombed-show",
+          "title": "Bombed Show",
+          "image": "bombed-show.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "Every comic has one."
+        }
+      ]
+    },
+
+    {
+      "title": "The Chess Era",
+      "folder": "chess",
+      "items": [
+        {
+          "id": "magnus-stream",
+          "title": "Magnus Stream",
+          "image": "magnus-stream.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "Comedy meets chess."
+        },
+        {
+          "id": "hikaru-stream",
+          "title": "Hikaru Stream",
+          "image": "hikaru-stream.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "One unforgettable stream."
+        }
+      ]
+    },
+
+    {
+      "title": "India's Got Latent",
+      "folder": "latent",
+      "items": [
+        {
+          "id": "episode-1",
+          "title": "Episode One",
+          "image": "episode-1.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "Where the madness began."
+        },
+        {
+          "id": "best-moments",
+          "title": "Best Moments",
+          "image": "best-moments.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "Internet's favourite clips."
+        }
+      ]
+    },
+
+    {
+      "title": "Podcasts",
+      "folder": "podcasts",
+      "items": [
+        {
+          "id": "beerbiceps",
+          "title": "BeerBiceps Podcast",
+          "image": "beerbiceps.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "Stories behind the stage."
+        },
+        {
+          "id": "raj-shamani",
+          "title": "Raj Shamani",
+          "image": "raj-shamani.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "An honest conversation."
+        }
+      ]
+    },
+
+    {
+      "title": "World Tour",
+      "folder": "world-tour",
+      "items": [
+        {
+          "id": "london",
+          "title": "London Show",
+          "image": "london.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "Laughter beyond borders."
+        },
+        {
+          "id": "dubai",
+          "title": "Dubai Show",
+          "image": "dubai.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "Packed house."
+        }
+      ]
+    },
+
+    {
+      "title": "Behind The Scenes",
+      "folder": "bts",
+      "items": [
+        {
+          "id": "green-room",
+          "title": "Green Room",
+          "image": "green-room.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "Before the curtains rise."
+        },
+        {
+          "id": "airport",
+          "title": "Airport Diaries",
+          "image": "airport.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "Life on the move."
+        }
+      ]
+    },
+
+    {
+      "title": "Friends of Samay",
+      "folder": "friends",
+      "items": [
+        {
+          "id": "balraj",
+          "title": "Balraj Ghai",
+          "image": "balraj.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "The OG."
+        },
+        {
+          "id": "tanmay",
+          "title": "Tanmay Bhat",
+          "image": "tanmay.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "Brains meet chaos."
+        }
+      ]
+    },
+
+    {
+      "title": "Milestones",
+      "folder": "milestones",
+      "items": [
+        {
+          "id": "one-million",
+          "title": "1 Million",
+          "image": "1-million.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "A huge milestone."
+        },
+        {
+          "id": "sold-out",
+          "title": "Sold Out Shows",
+          "image": "sold-out.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "Every seat filled."
+        }
+      ]
+    },
+
+    {
+      "title": "Legendary Moments",
+      "folder": "legendary",
+      "items": [
+        {
+          "id": "iconic-roast",
+          "title": "Iconic Roast",
+          "image": "iconic-roast.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "A moment everyone remembers."
+        },
+        {
+          "id": "viral-clip",
+          "title": "Viral Clip",
+          "image": "viral-clip.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "The internet exploded."
+        }
+      ]
+    },
+
+    {
+      "title": "Meme Material",
+      "folder": "memes",
+      "items": [
+        {
+          "id": "reaction-face",
+          "title": "Reaction Face",
+          "image": "reaction-face.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "Used everywhere."
+        },
+        {
+          "id": "template",
+          "title": "Legendary Meme",
+          "image": "template.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "The community loved it."
+        }
+      ]
+    },
+
+    {
+      "title": "Fan Moments",
+      "folder": "fans",
+      "items": [
+        {
+          "id": "meet-greet",
+          "title": "Meet & Greet",
+          "image": "meet-greet.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "Memories with fans."
+        },
+        {
+          "id": "fan-art",
+          "title": "Fan Art",
+          "image": "fan-art.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "Made with love."
+        }
+      ]
+    },
+
+    {
+      "title": "Watch Again",
+      "folder": "watch-again",
+      "items": [
+        {
+          "id": "classic-clip",
+          "title": "Classic Clip",
+          "image": "classic-clip.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "Worth watching again."
+        },
+        {
+          "id": "fan-favourite",
+          "title": "Fan Favourite",
+          "image": "fan-favourite.jpg",
+          "url": "https://youtube.com/watch?v=VIDEO_ID",
+          "description": "Never gets old."
+        }
+      ]
+    }
+  ]
+}

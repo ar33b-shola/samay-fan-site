@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Who's Watching? - Samay Raina</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #141414;
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .profile-container {
+            max-width: 900px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .profile-container h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .profile-grid {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .profile-item {
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .profile-item:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            object-fit: cover;
+            background: #333;
+            border: 3px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        /* Samay's image - crop from top */
+        .profile-avatar.samay {
+            object-position: center 20%;
+        }
+
+        .profile-item:hover .profile-avatar {
+            border-color: #fff;
+        }
+
+        .profile-name {
+            color: #808080;
+            font-size: 0.95rem;
+            font-weight: 300;
+            transition: color 0.2s ease;
+        }
+
+        .profile-item:hover .profile-name {
+            color: #fff;
+        }
+
+        .manage-btn {
+            background: transparent;
+            color: #808080;
+            border: 1px solid #808080;
+            padding: 10px 40px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .manage-btn:hover {
+            color: #fff;
+            border-color: #fff;
+        }
+
+        /* Fallback for images that don't load */
+        .profile-avatar[src] {
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-container">
+        <h1>Who's watching?</h1>
+
+        <div class="profile-grid">
+            <!-- Lurker -->
+            <div class="profile-item">
+                <img
+                    class="profile-avatar"
+                    src="https://raw.githubusercontent.com/ar33b-shola/samay-fan-site/refs/heads/main/assets/lurker.png"
+                    alt="Lurker"
+                    onerror="this.style.display='none'; this.parentElement.innerHTML += '<div style=\'width:120px;height:120px;border-radius:8px;background:#333;margin-bottom:0.5rem;\'></div>';"
+                />
+                <div class="profile-name">Lurker</div>
+            </div>
+
+            <!-- Explorer -->
+            <div class="profile-item">
+                <img
+                    class="profile-avatar"
+                    src="https://raw.githubusercontent.com/ar33b-shola/samay-fan-site/refs/heads/main/assets/explorer.png"
+                    alt="Explorer"
+                    onerror="this.style.display='none'; this.parentElement.innerHTML += '<div style=\'width:120px;height:120px;border-radius:8px;background:#333;margin-bottom:0.5rem;\'></div>';"
+                />
+                <div class="profile-name">Explorer</div>
+            </div>
+
+            <!-- Samay Raina - with samay class for top crop -->
+            <div class="profile-item">
+                <img
+                    class="profile-avatar samay"
+                    src="https://raw.githubusercontent.com/ar33b-shola/samay-fan-site/refs/heads/main/assets/mai%20samay%20hu.jpg"
+                    alt="Samay Raina"
+                    onerror="this.style.display='none'; this.parentElement.innerHTML += '<div style=\'width:120px;height:120px;border-radius:8px;background:#333;margin-bottom:0.5rem;\'></div>';"
+                />
+                <div class="profile-name">Samay Raina</div>
+            </div>
+
+            <!-- Balraj Ghai -->
+            <div class="profile-item">
+                <img
+                    class="profile-avatar"
+                    src="https://raw.githubusercontent.com/ar33b-shola/samay-fan-site/refs/heads/main/assets/balraj.png"
+                    alt="Balraj Ghai"
+                    onerror="this.style.display='none'; this.parentElement.innerHTML += '<div style=\'width:120px;height:120px;border-radius:8px;background:#333;margin-bottom:0.5rem;\'></div>';"
+                />
+                <div class="profile-name">Balraj Ghai</div>
+            </div>
+
+            <!-- Sunil Pal -->
+            <div class="profile-item">
+                <img
+                    class="profile-avatar"
+                    src="https://raw.githubusercontent.com/ar33b-shola/samay-fan-site/refs/heads/main/assets/388180-h.webp"
+                    alt="Sunil Pal"
+                    onerror="this.style.display='none'; this.parentElement.innerHTML += '<div style=\'width:120px;height:120px;border-radius:8px;background:#333;margin-bottom:0.5rem;\'></div>';"
+                />
+                <div class="profile-name">Sunil Pal</div>
+            </div>
+        </div>
+
+        <button class="manage-btn">Manage Profiles</button>
+    </div>
+
+</body>
+</html>

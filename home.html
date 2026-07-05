@@ -30,6 +30,7 @@
             padding: 0 60px;
             position: relative;
             z-index: 100;
+            margin-bottom: 4px;
         }
 
         .navbar-logo {
@@ -407,7 +408,7 @@
             text-align: center;
         }
 
-        /* ========== GALLERY - SEXY ON BOTH ========== */
+        /* ========== GALLERY - DESKTOP GRID ========== */
         .gallery-section {
             width: 100%;
             display: flex;
@@ -485,7 +486,7 @@
             border-radius: 9px;
         }
 
-        /* MODAL - SEXY */
+        /* ========== MODAL ========== */
         #modal {
             display: none;
             position: fixed;
@@ -547,7 +548,7 @@
         }
 
         /* ============================================
-           MOBILE - GALLERY SEXY AF
+           MOBILE - GALLERY SWIPEABLE CAROUSEL
            ============================================ */
         @media (max-width: 1024px) {
             .card {
@@ -557,10 +558,11 @@
         }
 
         @media (max-width: 768px) {
-            /* NAVBAR */
+            /* NAVBAR - more space */
             .navbar {
                 padding: 0 24px;
                 height: 70px;
+                margin-bottom: 6px;
             }
             .navbar-logo {
                 height: 36px;
@@ -572,30 +574,30 @@
                 font-size: 0.8rem;
             }
 
-            /* HERO */
+            /* HERO - image upar */
             .hero {
-                flex-direction: column;
+                flex-direction: column-reverse;
                 height: auto;
+            }
+            .hero-right {
+                width: 100%;
+                height: 45vh;
+                min-height: 280px;
             }
             .hero-left {
                 width: 100%;
                 height: auto;
-                padding: 40px 28px 50px;
+                padding: 30px 24px 40px;
                 min-height: auto;
             }
             .hero-left::after {
                 display: none;
             }
-            .hero-right {
-                width: 100%;
-                height: 45vh;
-                min-height: 300px;
-            }
             .hero-title {
-                font-size: 2.8rem;
+                font-size: 2.6rem;
             }
             .hero-description {
-                font-size: 0.9rem;
+                font-size: 0.88rem;
                 max-width: 100%;
             }
 
@@ -608,28 +610,52 @@
                 min-width: 130px;
             }
 
-            /* GALLERY - SEXY ON TABLET */
+            /* GALLERY - SWIPEABLE CAROUSEL */
+            .gallery-section {
+                padding: 20px 0 40px 0;
+            }
             .gallery-wrapper {
-                max-width: 650px;
+                max-width: 100%;
+                padding: 0 16px;
             }
             #gallery-container {
-                gap: 5px;
-                padding: 10px;
-                border-radius: 14px;
+                display: flex;
+                gap: 12px;
+                overflow-x: auto;
+                overflow-y: hidden;
+                padding: 12px 8px;
+                border-radius: 12px;
+                scroll-behavior: smooth;
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+                background: transparent;
+                box-shadow: none;
+                grid-template-columns: none;
             }
-            #main-display {
-                grid-column: 3 / span 7;
-                border-width: 2.5px;
-                padding: 5px;
+            #gallery-container::-webkit-scrollbar {
+                display: none;
             }
+
             .small-img {
-                border-width: 1.5px;
-                border-radius: 6px;
+                flex: 0 0 calc((100% - 24px) / 3);
+                min-width: 100px;
+                aspect-ratio: 1/1;
+                border-radius: 8px;
+                border: 2px solid #333;
+                transition: transform 0.3s ease, border-color 0.3s ease;
+            }
+
+            .small-img:active {
+                transform: scale(0.92);
+            }
+
+            #main-display {
+                display: none;
             }
 
             /* FOOTER */
             .footer {
-                padding: 40px 28px 24px;
+                padding: 40px 24px 24px;
             }
             .footer-content {
                 flex-direction: column;
@@ -643,6 +669,7 @@
             .navbar {
                 padding: 0 14px;
                 height: 56px;
+                margin-bottom: 4px;
             }
             .navbar-logo {
                 height: 26px;
@@ -655,13 +682,13 @@
                 letter-spacing: 0;
             }
 
-            /* HERO */
-            .hero-left {
-                padding: 28px 16px 36px;
-            }
+            /* HERO - image upar */
             .hero-right {
-                height: 30vh;
-                min-height: 180px;
+                height: 32vh;
+                min-height: 200px;
+            }
+            .hero-left {
+                padding: 24px 16px 32px;
             }
             .hero-title {
                 font-size: 2rem;
@@ -682,15 +709,15 @@
                 gap: 8px;
             }
             .btn-play, .btn-mylist {
-                padding: 8px 20px;
+                padding: 8px 18px;
                 font-size: 0.8rem;
                 flex: 1;
-                min-width: 80px;
+                min-width: 70px;
                 text-align: center;
             }
             .hero-meta {
                 font-size: 0.7rem;
-                gap: 14px;
+                gap: 12px;
             }
 
             /* CONTENT ROWS */
@@ -721,33 +748,25 @@
                 padding: 6px 6px 4px;
             }
 
-            /* GALLERY - SEXY AF ON MOBILE */
+            /* GALLERY - SWIPEABLE */
             .gallery-section {
-                padding: 16px 10px 32px;
+                padding: 16px 0 32px 0;
             }
             .gallery-wrapper {
-                max-width: 100%;
+                padding: 0 12px;
             }
             #gallery-container {
-                gap: 4px;
-                padding: 8px;
-                border-radius: 12px;
-            }
-            #main-display {
-                grid-column: 2 / span 9;
-                padding: 4px;
-                border-width: 2px;
-                border-radius: 8px;
-            }
-            #main-display img {
-                border-radius: 6px;
+                gap: 10px;
+                padding: 10px 6px;
             }
             .small-img {
+                flex: 0 0 calc((100% - 20px) / 3);
+                min-width: 80px;
+                border-radius: 6px;
                 border-width: 1.5px;
-                border-radius: 5px;
             }
 
-            /* MODAL - SEXY */
+            /* MODAL */
             #modal span {
                 top: 12px;
                 right: 14px;
@@ -817,17 +836,14 @@
             .card-info {
                 padding: 4px 4px 3px;
             }
-            #gallery-container {
-                gap: 3px;
-                padding: 6px;
-            }
-            #main-display {
-                padding: 3px;
-                border-width: 1.5px;
-            }
             .small-img {
-                border-width: 1px;
-                border-radius: 4px;
+                flex: 0 0 calc((100% - 16px) / 3);
+                min-width: 65px;
+                border-radius: 5px;
+            }
+            #gallery-container {
+                gap: 8px;
+                padding: 8px 4px;
             }
             #modal-img {
                 max-width: 96%;
@@ -842,22 +858,22 @@
             }
         }
 
-        /* Landscape */
+        /* LANDSCAPE */
         @media (max-height: 500px) and (orientation: landscape) {
             .hero {
-                flex-direction: row;
+                flex-direction: row-reverse;
                 height: auto;
                 min-height: 100vh;
-            }
-            .hero-left {
-                width: 50%;
-                height: 100vh;
-                padding: 30px 24px;
             }
             .hero-right {
                 width: 50%;
                 height: 100vh;
                 min-height: auto;
+            }
+            .hero-left {
+                width: 50%;
+                height: 100vh;
+                padding: 30px 24px;
             }
             .hero-title {
                 font-size: 2rem;
@@ -874,6 +890,7 @@
             .navbar {
                 height: 50px;
                 padding: 0 16px;
+                margin-bottom: 4px;
             }
             .navbar-logo {
                 height: 28px;
@@ -889,14 +906,11 @@
                 min-width: 100px;
             }
             .gallery-wrapper {
-                max-width: 550px;
+                padding: 0 16px;
             }
-            #gallery-container {
-                gap: 4px;
-                padding: 8px;
-            }
-            #main-display {
-                grid-column: 3 / span 7;
+            .small-img {
+                flex: 0 0 calc((100% - 20px) / 4);
+                min-width: 80px;
             }
             .footer {
                 padding: 20px;
@@ -971,82 +985,11 @@
         <!-- Rows injected by JavaScript -->
     </section>
 
-    <!-- ========== GALLERY - SEXY AF ========== -->
+    <!-- ========== GALLERY ========== -->
     <section class="gallery-section">
         <div class="gallery-wrapper">
             <div id="gallery-container">
-
-                <!-- ROW 1 -->
-                <img class="small-img" src="assets/images/05069e569855d0b889e178298d7ad8b6.jpg" style="grid-row:1; grid-column:1;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/19266ed88865acad7d4328bd8269974f.jpg" style="grid-row:1; grid-column:2;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/29e7a50248a7d27734428ee0d92eae69.jpg" style="grid-row:1; grid-column:3;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/2c01fd093ce142b54641b0746a70d6ac.jpg" style="grid-row:1; grid-column:4;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/33e7bd598db39f2ceec175de6c92c011.jpg" style="grid-row:1; grid-column:5;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/3434f69849325ffb28441f0ab09597a7.jpg" style="grid-row:1; grid-column:6;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/343d2f9fba39533e837dec8e26ab8c7d.jpg" style="grid-row:1; grid-column:7;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/36f21e108eb4a4ff82e3ba9210ba65b4.jpg" style="grid-row:1; grid-column:8;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/39503f73e2f04edc80d0ae8112868bd3.jpg" style="grid-row:1; grid-column:9;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/471250ee49c28ead8d7cdadf6b714523.jpg" style="grid-row:1; grid-column:10;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/4e67ddb8c19dde82aa93b71b3e30606e.jpg" style="grid-row:1; grid-column:11;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-
-                <!-- ROW 2 (left) -->
-                <img class="small-img" src="assets/images/5abe47565d052148441b5c62b7dccefe.jpg" style="grid-row:2; grid-column:1;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/5bcb228e83ff3ba79984b398afc960a0.jpg" style="grid-row:2; grid-column:2;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/5d176eb0db51228ededcaa2485fc454c.jpg" style="grid-row:2; grid-column:3;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-
-                <!-- ROW 2 (right) -->
-                <img class="small-img" src="assets/images/5ee18288a0799b1c80533eb49284f523.jpg" style="grid-row:2; grid-column:9;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/6ce21dfc039c371ffe0778a19df1e4c9.jpg" style="grid-row:2; grid-column:10;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/709a1db981e78cd6dd7b7f86914b5caa.jpg" style="grid-row:2; grid-column:11;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-
-                <!-- ROW 3 (left) -->
-                <img class="small-img" src="assets/images/7984125af150b1b31d8f8e9450ab0bcb.jpg" style="grid-row:3; grid-column:1;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/85e245c8490c6dc95d7949c66c632bce.jpg" style="grid-row:3; grid-column:2;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/885671e7e5edccd550025d91988d425c.jpg" style="grid-row:3; grid-column:3;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-
-                <!-- ROW 3 (right) -->
-                <img class="small-img" src="assets/images/9106a5b9df2070b7ed011434c4c974b5.jpg" style="grid-row:3; grid-column:9;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/a84c7cd9ce63af695b7adb8395c08a92.jpg" style="grid-row:3; grid-column:10;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/ae1d38bfd2d51072f72952943566d616.jpg" style="grid-row:3; grid-column:11;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-
-                <!-- ROW 4 (left) -->
-                <img class="small-img" src="assets/images/ae68916e768e1fbcbacdde1ec3ccb864.jpg" style="grid-row:4; grid-column:1;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/bae36d2533cec6e264232e44ad483e6f.jpg" style="grid-row:4; grid-column:2;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/be7657b4ac7eee5b1af2ac143e76c625.jpg" style="grid-row:4; grid-column:3;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-
-                <!-- ROW 4 (right) -->
-                <img class="small-img" src="assets/images/c20ea8d24658b87d6cbdc9a8ac355dd0.jpg" style="grid-row:4; grid-column:9;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/c712eaacd66e711977405cc66d2a8166.jpg" style="grid-row:4; grid-column:10;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/cdc0f2064799b25823f17a0a4652d4cc.jpg" style="grid-row:4; grid-column:11;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-
-                <!-- ROW 5 (left) -->
-                <img class="small-img" src="assets/images/d482c08efae0730cd36af0249def740c.jpg" style="grid-row:5; grid-column:1;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/d9d21a7c2410b93c5dc859208e8d16ce.jpg" style="grid-row:5; grid-column:2;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/e0bce0831225d236c6d17358153f5559.jpg" style="grid-row:5; grid-column:3;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-
-                <!-- ROW 5 (right) -->
-                <img class="small-img" src="assets/images/efe3aaf5d313f6185f2f731a39695999.jpg" style="grid-row:5; grid-column:9;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/f3dfcb94d2f0c84c40bd8613149d17d1.jpg" style="grid-row:5; grid-column:10;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/fc0d02aa8c948b7a9e6d8bf665b38f56.jpg" style="grid-row:5; grid-column:11;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-
-                <!-- ROW 6 -->
-                <img class="small-img" src="assets/images/05069e569855d0b889e178298d7ad8b6.jpg" style="grid-row:6; grid-column:1;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/19266ed88865acad7d4328bd8269974f.jpg" style="grid-row:6; grid-column:2;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/29e7a50248a7d27734428ee0d92eae69.jpg" style="grid-row:6; grid-column:3;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/2c01fd093ce142b54641b0746a70d6ac.jpg" style="grid-row:6; grid-column:4;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/33e7bd598db39f2ceec175de6c92c011.jpg" style="grid-row:6; grid-column:5;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/3434f69849325ffb28441f0ab09597a7.jpg" style="grid-row:6; grid-column:6;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/343d2f9fba39533e837dec8e26ab8c7d.jpg" style="grid-row:6; grid-column:7;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/36f21e108eb4a4ff82e3ba9210ba65b4.jpg" style="grid-row:6; grid-column:8;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/39503f73e2f04edc80d0ae8112868bd3.jpg" style="grid-row:6; grid-column:9;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/471250ee49c28ead8d7cdadf6b714523.jpg" style="grid-row:6; grid-column:10;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-                <img class="small-img" src="assets/images/4e67ddb8c19dde82aa93b71b3e30606e.jpg" style="grid-row:6; grid-column:11;" onmouseover="showMain(this.src)" onclick="openModal(this.src)">
-
-                <!-- MAIN DISPLAY -->
-                <div id="main-display">
-                    <img id="main-img" src="assets/images/05069e569855d0b889e178298d7ad8b6.jpg" alt="Samay Raina">
-                </div>
-
+                <!-- All images will be rendered by JS for mobile swipe -->
             </div>
         </div>
     </section>
@@ -1058,9 +1001,120 @@
     </div>
 
     <script>
-        // ========== GALLERY ==========
+        // ========== GALLERY IMAGES ARRAY ==========
+        const galleryImages = [
+            "assets/images/05069e569855d0b889e178298d7ad8b6.jpg",
+            "assets/images/19266ed88865acad7d4328bd8269974f.jpg",
+            "assets/images/29e7a50248a7d27734428ee0d92eae69.jpg",
+            "assets/images/2c01fd093ce142b54641b0746a70d6ac.jpg",
+            "assets/images/33e7bd598db39f2ceec175de6c92c011.jpg",
+            "assets/images/3434f69849325ffb28441f0ab09597a7.jpg",
+            "assets/images/343d2f9fba39533e837dec8e26ab8c7d.jpg",
+            "assets/images/36f21e108eb4a4ff82e3ba9210ba65b4.jpg",
+            "assets/images/39503f73e2f04edc80d0ae8112868bd3.jpg",
+            "assets/images/471250ee49c28ead8d7cdadf6b714523.jpg",
+            "assets/images/4e67ddb8c19dde82aa93b71b3e30606e.jpg",
+            "assets/images/5abe47565d052148441b5c62b7dccefe.jpg",
+            "assets/images/5bcb228e83ff3ba79984b398afc960a0.jpg",
+            "assets/images/5d176eb0db51228ededcaa2485fc454c.jpg",
+            "assets/images/5ee18288a0799b1c80533eb49284f523.jpg",
+            "assets/images/6ce21dfc039c371ffe0778a19df1e4c9.jpg",
+            "assets/images/709a1db981e78cd6dd7b7f86914b5caa.jpg",
+            "assets/images/7984125af150b1b31d8f8e9450ab0bcb.jpg",
+            "assets/images/85e245c8490c6dc95d7949c66c632bce.jpg",
+            "assets/images/885671e7e5edccd550025d91988d425c.jpg",
+            "assets/images/9106a5b9df2070b7ed011434c4c974b5.jpg",
+            "assets/images/a84c7cd9ce63af695b7adb8395c08a92.jpg",
+            "assets/images/ae1d38bfd2d51072f72952943566d616.jpg",
+            "assets/images/ae68916e768e1fbcbacdde1ec3ccb864.jpg",
+            "assets/images/bae36d2533cec6e264232e44ad483e6f.jpg",
+            "assets/images/be7657b4ac7eee5b1af2ac143e76c625.jpg",
+            "assets/images/c20ea8d24658b87d6cbdc9a8ac355dd0.jpg",
+            "assets/images/c712eaacd66e711977405cc66d2a8166.jpg",
+            "assets/images/cdc0f2064799b25823f17a0a4652d4cc.jpg",
+            "assets/images/d482c08efae0730cd36af0249def740c.jpg",
+            "assets/images/d9d21a7c2410b93c5dc859208e8d16ce.jpg",
+            "assets/images/e0bce0831225d236c6d17358153f5559.jpg",
+            "assets/images/efe3aaf5d313f6185f2f731a39695999.jpg",
+            "assets/images/f3dfcb94d2f0c84c40bd8613149d17d1.jpg",
+            "assets/images/fc0d02aa8c948b7a9e6d8bf665b38f56.jpg"
+        ];
+
+        // ========== RENDER GALLERY ==========
+        function renderGallery() {
+            const container = document.getElementById('gallery-container');
+            const isMobile = window.innerWidth <= 768;
+
+            if (isMobile) {
+                // MOBILE: Swipeable carousel
+                let html = '';
+                galleryImages.forEach(src => {
+                    html += `
+                        <img class="small-img" src="${src}" alt="Samay Raina" 
+                             onclick="openModal('${src}')" 
+                             onerror="this.style.display='none'" />
+                    `;
+                });
+                container.innerHTML = html;
+            } else {
+                // DESKTOP: Grid with main display
+                let html = '';
+                // Row 1
+                for (let i = 0; i < 11 && i < galleryImages.length; i++) {
+                    html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:1; grid-column:${i+1};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'" />`;
+                }
+                // Row 2 left
+                for (let i = 11; i < 14 && i < galleryImages.length; i++) {
+                    html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:2; grid-column:${i-10};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'" />`;
+                }
+                // Row 2 right
+                for (let i = 14; i < 17 && i < galleryImages.length; i++) {
+                    html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:2; grid-column:${i-5};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'" />`;
+                }
+                // Row 3 left
+                for (let i = 17; i < 20 && i < galleryImages.length; i++) {
+                    html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:3; grid-column:${i-16};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'" />`;
+                }
+                // Row 3 right
+                for (let i = 20; i < 23 && i < galleryImages.length; i++) {
+                    html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:3; grid-column:${i-11};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'" />`;
+                }
+                // Row 4 left
+                for (let i = 23; i < 26 && i < galleryImages.length; i++) {
+                    html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:4; grid-column:${i-22};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'" />`;
+                }
+                // Row 4 right
+                for (let i = 26; i < 29 && i < galleryImages.length; i++) {
+                    html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:4; grid-column:${i-17};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'" />`;
+                }
+                // Row 5 left
+                for (let i = 29; i < 32 && i < galleryImages.length; i++) {
+                    html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:5; grid-column:${i-28};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'" />`;
+                }
+                // Row 5 right
+                for (let i = 32; i < 35 && i < galleryImages.length; i++) {
+                    html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:5; grid-column:${i-23};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'" />`;
+                }
+                // Row 6
+                for (let i = 0; i < 11 && i < galleryImages.length; i++) {
+                    html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:6; grid-column:${i+1};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'" />`;
+                }
+
+                // Main display
+                html += `
+                    <div id="main-display">
+                        <img id="main-img" src="${galleryImages[0]}" alt="Samay Raina">
+                    </div>
+                `;
+
+                container.innerHTML = html;
+            }
+        }
+
+        // ========== GALLERY FUNCTIONS ==========
         function showMain(src) {
-            document.getElementById('main-img').src = src;
+            const mainImg = document.getElementById('main-img');
+            if (mainImg) mainImg.src = src;
         }
 
         function openModal(src) {
@@ -1155,6 +1209,10 @@
 
             loadContent();
         })();
+
+        // ========== INIT GALLERY ==========
+        renderGallery();
+        window.addEventListener('resize', renderGallery);
     </script>
 
     <!-- ========== FOOTER ========== -->

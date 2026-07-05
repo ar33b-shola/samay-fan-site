@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>About - Samay Raina</title>
     <style>
         * {
@@ -23,7 +24,7 @@
             padding: 0;
         }
 
-        /* ========== NAVBAR ========== */
+        /* ========== NAVBAR (EXACTLY FROM MAIN PAGE) ========== */
         .navbar {
             width: 100%;
             height: 80px;
@@ -121,16 +122,44 @@
             margin-bottom: 0;
         }
 
-        /* ========== RESPONSIVE — MOBILE FIRST ========== */
+        /* ========== RESPONSIVE — EXACTLY LIKE MAIN PAGE ========== */
 
-        /* Small phones */
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
             .navbar {
-                padding: 0 16px;
-                height: 60px;
+                padding: 0 24px;
+                height: 70px;
             }
             .navbar-logo {
-                height: 32px;
+                height: 36px;
+            }
+            .nav-links {
+                gap: 18px;
+            }
+            .nav-links li a {
+                font-size: 0.8rem;
+            }
+            .about-container {
+                padding: 30px 24px 50px;
+            }
+            .pfp {
+                width: 120px;
+                height: 120px;
+            }
+            .about-name {
+                font-size: 2.4rem;
+            }
+            .about-text {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 0 14px;
+                height: 56px;
+            }
+            .navbar-logo {
+                height: 26px;
             }
             .nav-links {
                 gap: 10px;
@@ -163,14 +192,13 @@
             }
         }
 
-        /* Smaller phones (under 380px) */
         @media (max-width: 380px) {
             .navbar {
-                padding: 0 12px;
-                height: 52px;
+                padding: 0 10px;
+                height: 48px;
             }
             .navbar-logo {
-                height: 26px;
+                height: 22px;
             }
             .nav-links {
                 gap: 6px;
@@ -194,37 +222,10 @@
             }
         }
 
-        /* Tablets & medium screens */
-        @media (min-width: 481px) and (max-width: 768px) {
-            .navbar {
-                padding: 0 30px;
-            }
-            .nav-links {
-                gap: 20px;
-            }
-            .nav-links li a {
-                font-size: 0.8rem;
-            }
-            .about-name {
-                font-size: 2.4rem;
-            }
-            .pfp {
-                width: 120px;
-                height: 120px;
-            }
-            .about-container {
-                padding: 30px 20px 50px;
-            }
-            .about-text {
-                font-size: 0.95rem;
-            }
-        }
-
-        /* Landscape phones / small height */
         @media (max-height: 600px) and (orientation: landscape) {
             .navbar {
                 height: 50px;
-                padding: 0 20px;
+                padding: 0 16px;
             }
             .navbar-logo {
                 height: 28px;
@@ -257,7 +258,7 @@
             }
         }
 
-        /* Large screens (desktop default) — keep as is */
+        /* Desktop default */
         @media (min-width: 769px) {
             .navbar {
                 padding: 0 60px;
@@ -287,20 +288,17 @@
 </head>
 <body>
 
-    <!-- ========== NAVBAR ========== -->
+    <!-- ========== NAVBAR (EXACTLY FROM MAIN) ========== -->
     <nav class="navbar">
-        <img
-            class="navbar-logo"
-            src="https://raw.githubusercontent.com/ar33b-shola/samay-fan-site/refs/heads/main/assets/logo.png"
-            alt="Samay Raina"
-            onerror="this.style.display='none'"
-        />
+        <a href="home.html">
+            <img class="navbar-logo" src="assets/logo.png" alt="Samay Raina" onerror="this.style.display='none'">
+        </a>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Shows</a></li>
-            <li><a href="#">Stand-Up</a></li>
-            <li><a href="#">Chess</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="https://www.netflix.com/in/title/82988577">Netflix</a></li>
+            <li><a href="https://www.youtube.com/@SamayRainaOfficial/videos">YouTube</a></li>
+            <li><a href="https://www.chess.com/players/samay-raina">Chess</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
     </nav>
 

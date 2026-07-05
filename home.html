@@ -223,7 +223,7 @@
         }
 
         .row-container {
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             padding: 0 60px;
         }
 
@@ -548,7 +548,7 @@
         }
 
         /* ============================================
-           MOBILE
+           MOBILE - TINDER STYLE SWIPE (RANDOM)
            ============================================ */
         @media (max-width: 1024px) {
             .card {
@@ -601,13 +601,13 @@
 
             .row-container {
                 padding: 0 24px;
-                margin-bottom: 40px;
             }
             .card {
                 flex: 0 0 calc((100% - 20px) / 3);
                 min-width: 130px;
             }
 
+            /* GALLERY - TINDER STYLE */
             .gallery-section {
                 padding: 20px 0 40px 0;
             }
@@ -663,6 +663,7 @@
                 cursor: grabbing;
             }
 
+            /* Swipe arrows - sexy floating */
             .swipe-arrows {
                 display: flex;
                 justify-content: space-between;
@@ -707,6 +708,7 @@
                 transform: scale(0.9);
             }
 
+            /* Swipe hint text */
             .swipe-hint {
                 position: absolute;
                 bottom: 30px;
@@ -797,7 +799,7 @@
 
             .row-container {
                 padding: 0 14px;
-                margin-bottom: 32px;
+                margin-bottom: 24px;
             }
             .row-title {
                 font-size: 1rem;
@@ -923,6 +925,7 @@
             }
         }
 
+        /* LANDSCAPE */
         @media (max-height: 500px) and (orientation: landscape) {
             .hero {
                 flex-direction: row-reverse;
@@ -964,7 +967,6 @@
             }
             .row-container {
                 padding: 0 16px;
-                margin-bottom: 30px;
             }
             .card {
                 flex: 0 0 calc((100% - 16px) / 3);
@@ -1112,13 +1114,16 @@
         ];
 
         let currentIndex = 0;
+        let touchStartX = 0;
+        let isMobile = false;
 
         // ========== RENDER GALLERY ==========
         function renderGallery() {
             const container = document.getElementById('gallery-container');
-            const isMobile = window.innerWidth <= 768;
+            isMobile = window.innerWidth <= 768;
 
             if (isMobile) {
+                // MOBILE: Tinder style - random swipe
                 let html = '';
                 galleryImages.forEach((src, index) => {
                     let className = 'small-img';
@@ -1138,8 +1143,9 @@
 
                 container.innerHTML = html;
 
+                // Touch events
+                const images = container.querySelectorAll('.small-img');
                 const containerElem = container;
-                let touchStartX = 0;
 
                 containerElem.addEventListener('touchstart', (e) => {
                     touchStartX = e.changedTouches[0].screenX;
@@ -1153,7 +1159,7 @@
                     }
                 }, { passive: true });
 
-                const images = container.querySelectorAll('.small-img');
+                // Click on image also goes to next
                 images.forEach(img => {
                     img.addEventListener('click', (e) => {
                         if (!e.target.closest('.swipe-arrow')) {
@@ -1162,6 +1168,7 @@
                     });
                 });
 
+                // Keyboard support
                 document.addEventListener('keydown', (e) => {
                     if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === ' ') {
                         e.preventDefault();
@@ -1170,38 +1177,50 @@
                 });
 
             } else {
+                // DESKTOP: Grid
                 let html = '';
+                // Row 1
                 for (let i = 0; i < 11 && i < galleryImages.length; i++) {
                     html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:1; grid-column:${i+1};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'" />`;
                 }
+                // Row 2 left
                 for (let i = 11; i < 14 && i < galleryImages.length; i++) {
                     html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:2; grid-column:${i-10};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'" />`;
                 }
+                // Row 2 right
                 for (let i = 14; i < 17 && i < galleryImages.length; i++) {
                     html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:2; grid-column:${i-5};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'" />`;
                 }
+                // Row 3 left
                 for (let i = 17; i < 20 && i < galleryImages.length; i++) {
                     html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:3; grid-column:${i-16};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'" />`;
                 }
+                // Row 3 right
                 for (let i = 20; i < 23 && i < galleryImages.length; i++) {
                     html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:3; grid-column:${i-11};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'" />`;
                 }
+                // Row 4 left
                 for (let i = 23; i < 26 && i < galleryImages.length; i++) {
                     html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:4; grid-column:${i-22};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'" />`;
                 }
+                // Row 4 right
                 for (let i = 26; i < 29 && i < galleryImages.length; i++) {
                     html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:4; grid-column:${i-17};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'" />`;
                 }
+                // Row 5 left
                 for (let i = 29; i < 32 && i < galleryImages.length; i++) {
                     html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:5; grid-column:${i-28};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'" />`;
                 }
+                // Row 5 right
                 for (let i = 32; i < 35 && i < galleryImages.length; i++) {
                     html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:5; grid-column:${i-23};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'" />`;
                 }
+                // Row 6
                 for (let i = 0; i < 11 && i < galleryImages.length; i++) {
                     html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:6; grid-column:${i+1};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'" />`;
                 }
 
+                // Main display
                 html += `
                     <div id="main-display">
                         <img id="main-img" src="${galleryImages[0]}" alt="Samay Raina">
@@ -1225,6 +1244,7 @@
         function updateImage() {
             const container = document.getElementById('gallery-container');
             const images = container.querySelectorAll('.small-img');
+            
             images.forEach((img, index) => {
                 img.classList.remove('active');
                 if (index === currentIndex) {

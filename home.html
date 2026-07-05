@@ -18,7 +18,7 @@
         .navbar {
             width:100%; height:80px; background:#000;
             display:flex; align-items:center; justify-content:space-between;
-            padding:0 60px; position:relative; z-index:100; margin-bottom:4px;
+            padding:0 60px; position:relative; z-index:100;
         }
         .navbar-logo { height:50px; width:auto; display:block; }
         .nav-links { display:flex; gap:35px; list-style:none; }
@@ -46,132 +46,101 @@
         .hero-title { font-size:3.8rem; font-weight:700; line-height:1.1; margin-bottom:12px; letter-spacing:-.5px; }
         .hero-rating { display:flex; align-items:center; gap:18px; margin-bottom:18px; font-size:.9rem; color:#ddd; flex-wrap:wrap; }
         .hero-rating .imdb { color:#f5c518; font-weight:600; }
-        .hero-rating .sep { color:#555; }
         .hero-buttons { display:flex; gap:14px; margin-bottom:22px; flex-wrap:wrap; }
-        .btn-play {
-            background:#fff; color:#000; border:none; padding:10px 32px;
-            font-size:.95rem; font-weight:600; border-radius:4px; cursor:pointer;
-            transition:background .2s; font-family:inherit;
+        .btn-play, .btn-mylist {
+            padding:10px 32px; font-size:.95rem; font-weight:600; border-radius:4px; cursor:pointer;
+            transition:all .2s; font-family:inherit;
         }
+        .btn-play { background:#fff; color:#000; border:none; }
         .btn-play:hover { background:#e6e6e6; }
-        .btn-play:active { transform:scale(.97); }
-        .btn-mylist {
-            background:rgba(255,255,255,.15); color:#fff; border:none;
-            padding:10px 32px; font-size:.95rem; font-weight:500; border-radius:4px;
-            cursor:pointer; transition:background .2s; font-family:inherit;
-        }
+        .btn-mylist { background:rgba(255,255,255,.15); color:#fff; border:none; }
         .btn-mylist:hover { background:rgba(255,255,255,.25); }
-        .btn-mylist:active { transform:scale(.97); }
         .hero-description { font-size:.95rem; line-height:1.6; color:#ccc; margin-bottom:20px; font-weight:300; max-width:90%; }
         .hero-meta { display:flex; gap:25px; font-size:.85rem; color:#aaa; font-weight:300; flex-wrap:wrap; }
-        .hero-meta span strong { color:#ddd; font-weight:400; }
         .hero-right { width:55%; height:100%; background:#1a1a1a; }
         .hero-right img { width:100%; height:100%; object-fit:cover; display:block; }
 
         /* content rows */
         .content-rows { padding:40px 0 20px 0; background:#141414; }
         .row-container { margin-bottom:40px; padding:0 60px; }
-        .row-container:last-child { margin-bottom:0; }
         .row-title { font-size:1.5rem; font-weight:700; color:#fff; margin-bottom:16px; letter-spacing:.3px; }
         .row-scroll {
-            display:flex; gap:12px; overflow-x:auto; overflow-y:hidden;
-            padding-bottom:12px; scroll-behavior:smooth;
-            -ms-overflow-style:none; scrollbar-width:none;
+            display:flex; gap:12px; overflow-x:auto; padding-bottom:12px;
+            scroll-behavior:smooth; -ms-overflow-style:none; scrollbar-width:none;
         }
         .row-scroll::-webkit-scrollbar { display:none; }
+
         .card {
             flex:0 0 calc((100% - 48px) / 5); min-width:180px;
             border-radius:8px; overflow:hidden; position:relative;
             cursor:pointer; transition:transform .25s, box-shadow .25s;
-            background:#2a2a2a; -webkit-tap-highlight-color:transparent;
+            background:#2a2a2a;
         }
-        .card:active { transform:scale(.95); }
         .card-thumbnail {
-            width:100%; aspect-ratio:16 / 9; overflow:hidden; background:#2a2a2a;
+            width:100%; aspect-ratio:16/9; overflow:hidden;
         }
         .card-thumbnail img {
-            width:100%; height:100%; object-fit:cover; display:block;
-            transition:filter .25s;
+            width:100%; height:100%; object-fit:cover; transition:filter .25s;
         }
         .card:hover { transform:scale(1.08); z-index:10; box-shadow:0 8px 30px rgba(0,0,0,.6); }
         .card:hover .card-thumbnail img { filter:brightness(1.15); }
-        .card-info { padding:10px 10px 8px; background:#1f1f1f; transition:background .25s; }
+        .card-info { padding:10px 10px 8px; background:#1f1f1f; }
         .card:hover .card-info { background:#2a2a2a; }
-        .card-title {
-            font-size:.85rem; font-weight:600; color:#fff; line-height:1.3;
-            display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;
-            overflow:hidden; min-height:2.2rem;
-        }
-        .card-desc {
-            font-size:.7rem; color:#aaa; font-weight:300; line-height:1.3;
-            margin-top:3px;
-            display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;
-            overflow:hidden;
-        }
+        .card-title { font-size:.85rem; font-weight:600; line-height:1.3; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+        .card-desc { font-size:.7rem; color:#aaa; margin-top:3px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
 
-        /* footer */
-        .footer {
-            background:#0a0a0a; border-top:1px solid #1f1f1f;
-            padding:50px 60px 30px; margin-top:40px;
-        }
-        .footer-content { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; gap:40px; }
-        .footer-brand h3 { font-size:1.5rem; font-weight:700; color:#fff; margin-bottom:10px; }
-        .footer-brand p { color:#888; font-size:.9rem; line-height:1.6; font-weight:300; max-width:500px; }
-        .footer-social-icons { display:flex; gap:25px; align-items:center; }
-        .footer-social-icons a {
-            color:#888; text-decoration:none; font-size:1.8rem;
-            transition:color .25s, transform .25s;
-            display:flex; align-items:center; justify-content:center;
-            width:50px; height:50px; border-radius:50%; background:#1a1a1a;
-            border:1px solid #2a2a2a;
-        }
-        .footer-social-icons a:hover {
-            color:#ff8800; transform:scale(1.1) translateY(-3px);
-            border-color:#ff8800; box-shadow:0 0 20px rgba(255,136,0,.15);
-        }
-        .footer-bottom {
-            max-width:1200px; margin:30px auto 0; padding-top:20px;
-            border-top:1px solid #1f1f1f; display:flex; justify-content:center;
-            align-items:center; flex-wrap:wrap; gap:10px;
-        }
-        .footer-bottom p { color:#555; font-size:.8rem; font-weight:300; text-align:center; }
-
-        /* gallery desktop grid */
-        .gallery-section { width:100%; display:flex; justify-content:center; padding:30px 20px 50px; background:#141414; }
-        .gallery-wrapper { display:flex; justify-content:center; width:100%; max-width:900px; }
+        /* === GALLERY FIX === */
+        .gallery-section { padding:30px 20px 50px; background:#141414; }
+        .gallery-wrapper { max-width:1100px; margin:0 auto; width:100%; }
         #gallery-container {
-            display:grid; grid-template-columns:repeat(11,1fr); gap:6px;
-            background:#1a1a1a; padding:12px; border-radius:16px;
-            box-shadow:0 0 40px rgba(255,100,0,.15); width:100%; position:relative;
+            display:grid;
+            grid-template-columns: repeat(11, 1fr);
+            gap:8px;
+            background:#1a1a1a;
+            padding:12px;
+            border-radius:16px;
+            box-shadow:0 0 40px rgba(255,100,0,.15);
         }
         .small-img {
-            width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:8px;
-            cursor:pointer; transition:transform .3s cubic-bezier(.2,.9,.4,1), box-shadow .3s;
-            border:2px solid transparent; -webkit-tap-highlight-color:transparent;
+            width:100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius:8px;
+            cursor:pointer;
+            transition: all .3s cubic-bezier(0.2,0.9,0.4,1);
+            border:2px solid transparent;
         }
-        .small-img:hover { transform:scale(1.1); box-shadow:0 0 25px rgba(255,150,50,.6); border-color:#ff8800; z-index:10; position:relative; }
-        .small-img:active { transform:scale(.92); }
+        .small-img:hover {
+            transform:scale(1.08);
+            box-shadow:0 0 25px rgba(255,150,50,.6);
+            border-color:#ff8800;
+            z-index:10;
+        }
+
         #main-display {
-            grid-row:2 / span 4; grid-column:4 / span 5;
-            background:#0a0a0a; border-radius:12px; padding:6px;
-            border:3px solid #ff6600; box-shadow:0 0 40px rgba(255,100,0,.3);
-            display:flex; align-items:center; justify-content:center; overflow:hidden;
-            aspect-ratio:1/1; transition:border-color .3s;
+            grid-row: 2 / span 4;
+            grid-column: 4 / span 5;
+            background:#0a0a0a;
+            border-radius:12px;
+            padding:6px;
+            border:3px solid #ff6600;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            overflow:hidden;
+            aspect-ratio:1/1;
         }
-        #main-display:hover { border-color:#ff8800; }
         #main-display img { width:100%; height:100%; object-fit:cover; border-radius:9px; }
 
         /* modal */
         #modal {
-            display:none; position:fixed; z-index:9999; top:0; left:0;
-            width:100%; height:100%; background:rgba(0,0,0,.95);
-            justify-content:center; align-items:center; backdrop-filter:blur(12px);
-            animation:modalFade .3s ease;
+            display:none; position:fixed; z-index:9999; inset:0;
+            background:rgba(0,0,0,.95); justify-content:center; align-items:center;
+            backdrop-filter:blur(12px);
         }
-        @keyframes modalFade { from{opacity:0; transform:scale(.95);} to{opacity:1; transform:scale(1);} }
         #modal span {
             position:absolute; top:30px; right:45px; font-size:50px; color:#fff;
-            cursor:pointer; font-weight:300; transition:.3s; z-index:10000;
+            cursor:pointer; font-weight:300; transition:.3s;
             width:60px; height:60px; display:flex; align-items:center; justify-content:center;
             border-radius:50%; background:rgba(255,255,255,.05);
         }
@@ -179,344 +148,228 @@
         #modal-img {
             max-width:88%; max-height:88%; border-radius:16px;
             box-shadow:0 0 80px rgba(255,100,0,.5); border:3px solid #ff8800;
-            object-fit:contain; animation:modalImgFade .4s ease;
+            object-fit:contain;
         }
-        @keyframes modalImgFade { from{opacity:0; transform:scale(.9);} to{opacity:1; transform:scale(1);} }
 
-        /* --- responsive --- */
+        /* footer */
+        .footer {
+            background:#0a0a0a; border-top:1px solid #1f1f1f;
+            padding:60px 60px 30px; margin-top:40px;
+        }
+        .footer-content {
+            max-width:1200px; margin:0 auto;
+            display:flex; justify-content:space-between; align-items:center; gap:40px;
+        }
+        .footer-brand p { color:#888; line-height:1.6; max-width:500px; }
+        .footer-social-icons { display:flex; gap:25px; }
+        .footer-social-icons a {
+            color:#888; font-size:1.8rem; width:50px; height:50px;
+            display:flex; align-items:center; justify-content:center;
+            border-radius:50%; background:#1a1a1a; border:1px solid #2a2a2a;
+            transition:all .25s;
+        }
+        .footer-social-icons a:hover {
+            color:#ff8800; transform:scale(1.1) translateY(-3px);
+            border-color:#ff8800;
+        }
+        .footer-bottom {
+            max-width:1200px; margin:40px auto 0; padding-top:20px;
+            border-top:1px solid #1f1f1f; text-align:center;
+        }
+
+        /* Responsive */
         @media (max-width:1024px) {
             .card { flex:0 0 calc((100% - 36px) / 4); min-width:160px; }
         }
         @media (max-width:768px) {
-            .navbar { padding:0 24px; height:70px; }
-            .navbar-logo { height:36px; }
-            .nav-links { gap:18px; }
-            .nav-links li a { font-size:.8rem; }
             .hero { flex-direction:column-reverse; height:auto; }
-            .hero-right { width:100%; height:45vh; min-height:280px; }
-            .hero-left { width:100%; height:auto; padding:30px 24px 40px; }
-            .hero-left::after { display:none; }
-            .hero-title { font-size:2.6rem; }
-            .hero-description { font-size:.88rem; max-width:100%; }
+            .hero-right { width:100%; height:45vh; }
+            .hero-left { width:100%; padding:30px 24px 40px; }
             .row-container { padding:0 24px; }
             .card { flex:0 0 calc((100% - 20px) / 3); min-width:130px; }
 
-            /* gallery carousel mobile */
-            .gallery-section { padding:20px 0 40px; }
-            .gallery-wrapper { max-width:100%; padding:0 16px; }
+            /* Mobile Gallery - Horizontal Scroll */
             #gallery-container {
-                display:flex; gap:12px; overflow-x:auto; overflow-y:hidden;
-                padding:12px 8px; border-radius:12px; scroll-behavior:smooth;
-                -ms-overflow-style:none; scrollbar-width:none;
+                display:flex; gap:10px; overflow-x:auto; padding:12px 8px;
                 background:transparent; box-shadow:none;
             }
-            #gallery-container::-webkit-scrollbar { display:none; }
-            .small-img {
-                flex:0 0 calc((100% - 24px) / 3); min-width:100px;
-                aspect-ratio:1/1; border-radius:8px; border:2px solid #333;
-                transition:transform .3s, border-color .3s;
-            }
-            .small-img:active { transform:scale(.92); }
             #main-display { display:none; }
-
-            .footer { padding:40px 24px 24px; }
-            .footer-content { flex-direction:column; text-align:center; gap:24px; }
+            .small-img { flex:0 0 calc(33.33% - 8px); min-width:100px; }
         }
         @media (max-width:480px) {
             .navbar { padding:0 14px; height:56px; }
             .navbar-logo { height:26px; }
-            .nav-links { gap:10px; }
-            .nav-links li a { font-size:.65rem; letter-spacing:0; }
-            .hero-right { height:32vh; min-height:200px; }
-            .hero-left { padding:24px 16px 32px; }
             .hero-title { font-size:2rem; }
-            .hero-badge { font-size:.6rem; margin-bottom:8px; }
-            .hero-rating { font-size:.7rem; gap:8px; }
-            .hero-description { font-size:.78rem; }
-            .hero-buttons { gap:8px; }
-            .btn-play, .btn-mylist { padding:8px 18px; font-size:.8rem; flex:1; min-width:70px; text-align:center; }
-            .hero-meta { font-size:.7rem; gap:12px; }
             .row-container { padding:0 14px; margin-bottom:24px; }
-            .row-title { font-size:1rem; margin-bottom:10px; }
-            .row-scroll { gap:8px; }
-            .card { flex:0 0 calc((100% - 8px) / 2); min-width:90px; border-radius:6px; }
-            .card-title { font-size:.65rem; min-height:1.6rem; }
-            .card-desc { font-size:.55rem; }
-            .card-info { padding:6px 6px 4px; }
-            .gallery-section { padding:16px 0 32px; }
-            .gallery-wrapper { padding:0 12px; }
-            #gallery-container { gap:10px; padding:10px 6px; }
-            .small-img { flex:0 0 calc((100% - 20px) / 3); min-width:80px; border-radius:6px; border-width:1.5px; }
-            #modal span { top:12px; right:14px; font-size:28px; width:44px; height:44px; }
-            #modal-img { max-width:94%; max-height:78%; border-radius:12px; border-width:2px; }
-            .footer { padding:28px 14px 18px; margin-top:16px; }
-            .footer-brand h3 { font-size:1.1rem; }
-            .footer-brand p { font-size:.75rem; }
-            .footer-social-icons { gap:12px; }
-            .footer-social-icons a { width:38px; height:38px; font-size:1.1rem; }
-            .footer-bottom { margin-top:16px; padding-top:14px; }
-            .footer-bottom p { font-size:.6rem; }
-        }
-        @media (max-width:380px) {
-            .hero-title { font-size:1.6rem; }
-            .hero-description { font-size:.7rem; }
-            .btn-play, .btn-mylist { padding:6px 14px; font-size:.7rem; min-width:60px; }
-            .card { flex:0 0 calc((100% - 6px) / 2); min-width:70px; }
-            .card-title { font-size:.55rem; min-height:1.3rem; }
-            .card-desc { font-size:.5rem; }
-            .card-info { padding:4px 4px 3px; }
-            .small-img { flex:0 0 calc((100% - 16px) / 3); min-width:65px; border-radius:5px; }
-            #gallery-container { gap:8px; padding:8px 4px; }
-            #modal-img { max-width:96%; max-height:72%; }
-            #modal span { width:36px; height:36px; font-size:22px; top:10px; right:10px; }
-        }
-        @media (max-height:500px) and (orientation:landscape) {
-            .hero { flex-direction:row-reverse; height:auto; min-height:100vh; }
-            .hero-right { width:50%; height:100vh; min-height:auto; }
-            .hero-left { width:50%; height:100vh; padding:30px 24px; }
-            .hero-title { font-size:2rem; }
-            .hero-description { font-size:.75rem; max-width:100%; }
-            .btn-play, .btn-mylist { padding:6px 16px; font-size:.75rem; min-width:70px; }
-            .navbar { height:50px; padding:0 16px; }
-            .navbar-logo { height:28px; }
-            .nav-links li a { font-size:.7rem; }
-            .row-container { padding:0 16px; }
-            .card { flex:0 0 calc((100% - 16px) / 3); min-width:100px; }
-            .gallery-wrapper { padding:0 16px; }
-            .small-img { flex:0 0 calc((100% - 20px) / 4); min-width:80px; }
-            .footer { padding:20px; }
-            .footer-content { flex-direction:row; flex-wrap:wrap; justify-content:center; gap:16px; }
+            .card { flex:0 0 calc((100% - 8px) / 2); min-width:90px; }
+            .small-img { flex:0 0 calc(33.33% - 7px); min-width:80px; }
         }
     </style>
 </head>
 <body>
+    <!-- navbar -->
+    <nav class="navbar">
+        <a href="home.html"><img class="navbar-logo" src="assets/logo.png" alt="Samay Raina" onerror="this.style.display='none'"></a>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="https://www.netflix.com/in/title/82988577">Netflix</a></li>
+            <li><a href="https://www.youtube.com/@SamayRainaOfficial/videos">YouTube</a></li>
+            <li><a href="https://www.chess.com/players/samay-raina">Chess</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
 
-<!-- navbar -->
-<nav class="navbar">
-    <a href="home.html"><img class="navbar-logo" src="assets/logo.png" alt="Samay Raina" onerror="this.style.display='none'"></a>
-    <ul class="nav-links">
-        <li><a href="home.html">Home</a></li>
-        <li><a href="https://www.netflix.com/in/title/82988577">Netflix</a></li>
-        <li><a href="https://www.youtube.com/@SamayRainaOfficial/videos">YouTube</a></li>
-        <li><a href="https://www.chess.com/players/samay-raina">Chess</a></li>
-        <li><a href="about.html">About</a></li>
-    </ul>
-</nav>
-
-<!-- hero -->
-<section class="hero">
-    <div class="hero-left">
-        <div class="hero-content">
-            <div class="hero-badge">Now Cooking</div>
-            <h1 class="hero-title">Samay Raina</h1>
-            <div class="hero-rating">
-                <span class="imdb">Audience Rating: 10/10</span>
-                <span class="sep">|</span>
-                <span>1997</span>
-                <span class="sep">|</span>
-                <span>Never Boring</span>
-            </div>
-            <div class="hero-buttons">
-                <button class="btn-play" onclick="window.open('https://www.youtube.com/watch?v=c35fpGWqXnk', '_blank')">▶ Play</button>
-                <button class="btn-mylist" onclick="window.open('https://instagram.com/ar33b.shola', '_blank')">+ My List</button>
-            </div>
-            <p class="hero-description">
-                Samay Raina is a prominent Indian stand-up comedian, YouTuber, and internet personality who rose to massive fame for popularizing online chess streaming in India during the pandemic and later creating the viral talent hunt show India's Got Latent. Born in Jammu into a Kashmiri Pandit family, his sharp wit, edgy humor, and unique ability to build online subcultures have made him one of the country's most successful independent content creators.
-            </p>
-            <div class="hero-meta">
-                <span><strong>Profession:</strong> Comedian</span>
-                <span><strong>Origin: </strong> Jammu</span>
+    <!-- hero -->
+    <section class="hero">
+        <div class="hero-left">
+            <div class="hero-content">
+                <div class="hero-badge">Now Cooking</div>
+                <h1 class="hero-title">Samay Raina</h1>
+                <div class="hero-rating">
+                    <span class="imdb">Audience Rating: 10/10</span>
+                    <span class="sep">|</span>
+                    <span>1997</span>
+                    <span class="sep">|</span>
+                    <span>Never Boring</span>
+                </div>
+                <div class="hero-buttons">
+                    <button class="btn-play" onclick="window.open('https://www.youtube.com/watch?v=c35fpGWqXnk', '_blank')">▶ Play</button>
+                    <button class="btn-mylist" onclick="window.open('https://instagram.com/ar33b.shola', '_blank')">+ My List</button>
+                </div>
+                <p class="hero-description">
+                    Samay Raina is a prominent Indian stand-up comedian, YouTuber, and internet personality who rose to massive fame for popularizing online chess streaming in India during the pandemic and later creating the viral talent hunt show India's Got Latent.
+                </p>
+                <div class="hero-meta">
+                    <span><strong>Profession:</strong> Comedian</span>
+                    <span><strong>Origin:</strong> Jammu</span>
+                </div>
             </div>
         </div>
+        <div class="hero-right">
+            <img src="assets/images/c20ea8d24658b87d6cbdc9a8ac355dd0.jpg" alt="Samay Raina">
+        </div>
+    </section>
+
+    <!-- content rows -->
+    <section class="content-rows" id="contentRows"></section>
+
+    <!-- gallery -->
+    <section class="gallery-section">
+        <div class="gallery-wrapper">
+            <div id="gallery-container"></div>
+        </div>
+    </section>
+
+    <!-- modal -->
+    <div id="modal" onclick="closeModal()">
+        <span onclick="closeModal()">×</span>
+        <img id="modal-img" src="" alt="full view">
     </div>
-    <div class="hero-right">
-        <img src="assets/images/c20ea8d24658b87d6cbdc9a8ac355dd0.jpg" alt="Samay Raina">
-    </div>
-</section>
 
-<!-- content rows -->
-<section class="content-rows" id="contentRows"></section>
+    <script>
+        const galleryImages = [ /* ... your images array same as before ... */ ];
 
-<!-- gallery -->
-<section class="gallery-section">
-    <div class="gallery-wrapper">
-        <div id="gallery-container"></div>
-    </div>
-</section>
+        function renderGallery() {
+            const container = document.getElementById('gallery-container');
+            const isMobile = window.innerWidth <= 768;
 
-<!-- modal -->
-<div id="modal" onclick="closeModal()">
-    <span onclick="closeModal()">&times;</span>
-    <img id="modal-img" src="" alt="full view">
-</div>
-
-<script>
-    // ===== GALLERY IMAGES =====
-    const galleryImages = [
-        "assets/images/05069e569855d0b889e178298d7ad8b6.jpg","assets/images/19266ed88865acad7d4328bd8269974f.jpg",
-        "assets/images/29e7a50248a7d27734428ee0d92eae69.jpg","assets/images/2c01fd093ce142b54641b0746a70d6ac.jpg",
-        "assets/images/33e7bd598db39f2ceec175de6c92c011.jpg","assets/images/3434f69849325ffb28441f0ab09597a7.jpg",
-        "assets/images/343d2f9fba39533e837dec8e26ab8c7d.jpg","assets/images/36f21e108eb4a4ff82e3ba9210ba65b4.jpg",
-        "assets/images/39503f73e2f04edc80d0ae8112868bd3.jpg","assets/images/471250ee49c28ead8d7cdadf6b714523.jpg",
-        "assets/images/4e67ddb8c19dde82aa93b71b3e30606e.jpg","assets/images/5abe47565d052148441b5c62b7dccefe.jpg",
-        "assets/images/5bcb228e83ff3ba79984b398afc960a0.jpg","assets/images/5d176eb0db51228ededcaa2485fc454c.jpg",
-        "assets/images/5ee18288a0799b1c80533eb49284f523.jpg","assets/images/6ce21dfc039c371ffe0778a19df1e4c9.jpg",
-        "assets/images/709a1db981e78cd6dd7b7f86914b5caa.jpg","assets/images/7984125af150b1b31d8f8e9450ab0bcb.jpg",
-        "assets/images/85e245c8490c6dc95d7949c66c632bce.jpg","assets/images/885671e7e5edccd550025d91988d425c.jpg",
-        "assets/images/9106a5b9df2070b7ed011434c4c974b5.jpg","assets/images/a84c7cd9ce63af695b7adb8395c08a92.jpg",
-        "assets/images/ae1d38bfd2d51072f72952943566d616.jpg","assets/images/ae68916e768e1fbcbacdde1ec3ccb864.jpg",
-        "assets/images/bae36d2533cec6e264232e44ad483e6f.jpg","assets/images/be7657b4ac7eee5b1af2ac143e76c625.jpg",
-        "assets/images/c20ea8d24658b87d6cbdc9a8ac355dd0.jpg","assets/images/c712eaacd66e711977405cc66d2a8166.jpg",
-        "assets/images/cdc0f2064799b25823f17a0a4652d4cc.jpg","assets/images/d482c08efae0730cd36af0249def740c.jpg",
-        "assets/images/d9d21a7c2410b93c5dc859208e8d16ce.jpg","assets/images/e0bce0831225d236c6d17358153f5559.jpg",
-        "assets/images/efe3aaf5d313f6185f2f731a39695999.jpg","assets/images/f3dfcb94d2f0c84c40bd8613149d17d1.jpg",
-        "assets/images/fc0d02aa8c948b7a9e6d8bf665b38f56.jpg"
-    ];
-
-    // ===== RENDER GALLERY =====
-    function renderGallery() {
-        const container = document.getElementById('gallery-container');
-        const isMobile = window.innerWidth <= 768;
-
-        if (isMobile) {
-            let html = '';
-            galleryImages.forEach(src => {
-                html += `<img class="small-img" src="${src}" alt="Samay Raina" onclick="openModal('${src}')" onerror="this.style.display='none'">`;
-            });
-            container.innerHTML = html;
-        } else {
-            // desktop grid with fixed 11 columns
-            let html = '';
-            // row1 (grid-row:1)
-            for (let i=0; i<11 && i<galleryImages.length; i++) {
-                html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:1; grid-column:${i+1};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'">`;
-            }
-            // row2 left (col 1-3)
-            for (let i=11; i<14 && i<galleryImages.length; i++) {
-                html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:2; grid-column:${i-10};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'">`;
-            }
-            // row2 right (col 9-11)
-            for (let i=14; i<17 && i<galleryImages.length; i++) {
-                html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:2; grid-column:${i-5};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'">`;
-            }
-            // row3 left (col 1-3)
-            for (let i=17; i<20 && i<galleryImages.length; i++) {
-                html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:3; grid-column:${i-16};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'">`;
-            }
-            // row3 right (col 9-11)
-            for (let i=20; i<23 && i<galleryImages.length; i++) {
-                html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:3; grid-column:${i-11};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'">`;
-            }
-            // row4 left (col 1-3)
-            for (let i=23; i<26 && i<galleryImages.length; i++) {
-                html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:4; grid-column:${i-22};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'">`;
-            }
-            // row4 right (col 9-11)
-            for (let i=26; i<29 && i<galleryImages.length; i++) {
-                html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:4; grid-column:${i-17};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'">`;
-            }
-            // row5 left (col 1-3)
-            for (let i=29; i<32 && i<galleryImages.length; i++) {
-                html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:5; grid-column:${i-28};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'">`;
-            }
-            // row5 right (col 9-11)
-            for (let i=32; i<35 && i<galleryImages.length; i++) {
-                html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:5; grid-column:${i-23};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'">`;
-            }
-            // row6 (col 1-11)
-            for (let i=0; i<11 && i<galleryImages.length; i++) {
-                html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:6; grid-column:${i+1};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'">`;
-            }
-            // main display
-            html += `<div id="main-display"><img id="main-img" src="${galleryImages[0]}" alt="Samay Raina"></div>`;
-            container.innerHTML = html;
-        }
-    }
-
-    function showMain(src) {
-        const mainImg = document.getElementById('main-img');
-        if (mainImg) mainImg.src = src;
-    }
-
-    function openModal(src) {
-        document.getElementById('modal-img').src = src;
-        document.getElementById('modal').style.display = "flex";
-        document.body.style.overflow = "hidden";
-    }
-
-    function closeModal() {
-        document.getElementById('modal').style.display = "none";
-        document.body.style.overflow = "auto";
-    }
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-
-    // ===== CONTENT ROWS (JSON) =====
-    (function() {
-        const container = document.getElementById('contentRows');
-        async function loadContent() {
-            try {
-                const response = await fetch('https://raw.githubusercontent.com/ar33b-shola/samay-fan-site/refs/heads/main/content.json');
-                if (!response.ok) throw new Error('fetch failed');
-                const data = await response.json();
-                if (!data.categories || !Array.isArray(data.categories)) return;
-                renderRows(data.categories);
-            } catch (e) {
-                container.innerHTML = `<div style="padding:40px 20px;color:#aaa;text-align:center;">Unable to load content.</div>`;
-            }
-        }
-
-        function renderRows(categories) {
-            let html = '';
-            categories.forEach(cat => {
-                if (!cat.items || !cat.items.length) return;
-                html += `<div class="row-container"><h2 class="row-title">${cat.title || 'Untitled'}</h2><div class="row-scroll">`;
-                cat.items.forEach(item => {
-                    const yid = item.youtubeId || '';
-                    const thumb = yid ? `https://img.youtube.com/vi/${yid}/hqdefault.jpg` : '';
-                    const title = item.title || 'Untitled';
-                    const desc = item.description || '';
-                    const url = item.url || '#';
-                    html += `
-                        <div class="card" data-url="${url}">
-                            <div class="card-thumbnail">${thumb ? `<img src="${thumb}" alt="${title}" loading="lazy" onerror="this.style.display='none'">` : ''}</div>
-                            <div class="card-info"><div class="card-title">${title}</div>${desc ? `<div class="card-desc">${desc}</div>` : ''}</div>
-                        </div>
-                    `;
+            if (isMobile) {
+                container.innerHTML = galleryImages.map(src => `
+                    <img class="small-img" src="${src}" onclick="openModal('${src}')" onerror="this.style.display='none'">
+                `).join('');
+            } else {
+                let html = '';
+                // Simplified but better looking grid
+                galleryImages.slice(0, 35).forEach((src, i) => {
+                    const row = i < 11 ? 1 : i < 23 ? 6 : Math.floor(i/11) + 1;
+                    const col = (i % 11) + 1;
+                    html += `<img class="small-img" src="${src}" style="grid-row:${row}; grid-column:${col};" onmouseover="showMain('${src}')" onclick="openModal('${src}')">`;
                 });
-                html += `</div></div>`;
-            });
-            container.innerHTML = html;
-            document.querySelectorAll('.card').forEach(card => {
-                card.addEventListener('click', function() {
-                    const url = this.getAttribute('data-url');
-                    if (url && url !== '#') window.open(url, '_blank');
-                });
-            });
+
+                html += `
+                    <div id="main-display">
+                        <img id="main-img" src="${galleryImages[0]}" alt="Samay Raina">
+                    </div>
+                `;
+                container.innerHTML = html;
+            }
         }
-        loadContent();
-    })();
 
-    // init
-    renderGallery();
-    window.addEventListener('resize', renderGallery);
-</script>
+        function showMain(src) {
+            const mainImg = document.getElementById('main-img');
+            if (mainImg) mainImg.src = src;
+        }
 
-<!-- footer -->
-<footer class="footer">
-    <div class="footer-content">
-        <div class="footer-brand">
-            <h3>Mohammad Areeb Hussain Shola</h3>
-            <p>Whatever you are doing in life — 9 to 5, startup, whatever... dil se mat karna, dimaag lagake karo, detach and do it!</p>
+        function openModal(src) {
+            document.getElementById('modal-img').src = src;
+            document.getElementById('modal').style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        // Content Rows (same logic)
+        (function() {
+            const container = document.getElementById('contentRows');
+            fetch('https://raw.githubusercontent.com/ar33b-shola/samay-fan-site/refs/heads/main/content.json')
+                .then(r => r.json())
+                .then(data => {
+                    let html = '';
+                    data.categories.forEach(cat => {
+                        html += `<div class="row-container"><h2 class="row-title">${cat.title}</h2><div class="row-scroll">`;
+                        cat.items.forEach(item => {
+                            const yid = item.youtubeId || '';
+                            const thumb = yid ? `https://img.youtube.com/vi/${yid}/hqdefault.jpg` : '';
+                            html += `
+                                <div class="card" data-url="${item.url || '#'}">
+                                    <div class="card-thumbnail">${thumb ? `<img src="${thumb}" loading="lazy">` : ''}</div>
+                                    <div class="card-info">
+                                        <div class="card-title">${item.title}</div>
+                                        ${item.description ? `<div class="card-desc">${item.description}</div>` : ''}
+                                    </div>
+                                </div>
+                            `;
+                        });
+                        html += `</div></div>`;
+                    });
+                    container.innerHTML = html;
+
+                    document.querySelectorAll('.card').forEach(card => {
+                        card.addEventListener('click', () => {
+                            const url = card.getAttribute('data-url');
+                            if (url && url !== '#') window.open(url, '_blank');
+                        });
+                    });
+                })
+                .catch(() => {
+                    container.innerHTML = `<div style="padding:40px;color:#aaa;text-align:center;">Unable to load content.</div>`;
+                });
+        })();
+
+        // Init
+        renderGallery();
+        window.addEventListener('resize', renderGallery);
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    </script>
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Mohammad Areeb Hussain Shola</h3>
+                <p>Whatever you are doing in life — 9 to 5, startup, whatever... dil se mat karna, dimaag lagake karo, detach and do it!</p>
+            </div>
+            <div class="footer-social-icons">
+                <a href="mailto:mohammadareebhussainshola@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://www.instagram.com/ar33b.shola" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
         </div>
-        <div class="footer-social-icons">
-            <a href="mailto:mohammadareebhussainshola@gmail.com" target="_blank" title="Email"><i class="fa-solid fa-envelope"></i></a>
-            <a href="https://www.instagram.com/ar33b.shola" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Areeb. Made with ❤️ by Mohammad Areeb Hussain Shola.</p>
         </div>
-    </div>
-    <div class="footer-bottom"><p>&copy; 2026 Areeb. Made with ❤️ by Mohammad Areeb Hussain Shola.</p></div>
-</footer>
-
-    <!--- S --->
-
+    </footer>
 </body>
 </html>

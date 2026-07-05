@@ -105,6 +105,55 @@
             display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;
             overflow:hidden;
         }
+        /* gallery mobile only */
+        .gallery-section { display: none !important; width:100%; padding:20px 0 40px; background:#141414; }
+        .gallery-wrapper { display:flex; justify-content:center; width:100%; max-width:900px; }
+        #gallery-container {
+            display:flex; gap:12px; overflow-x:auto; overflow-y:hidden;
+            padding:12px 8px; border-radius:12px; scroll-behavior:smooth;
+            -ms-overflow-style:none; scrollbar-width:none;
+            background:transparent; box-shadow:none; width: 100%;
+        }
+        #gallery-container::-webkit-scrollbar { display:none; }
+        .small-img {
+            flex:0 0 calc((100% - 24px) / 3); min-width:100px;
+            aspect-ratio:1/1; border-radius:8px; border:2px solid #333;
+            cursor:pointer; transition:transform .3s; -webkit-tap-highlight-color:transparent;
+        }
+        .small-img:active { transform:scale(.92); }
+        /* gallery header */
+        .gallery-header {
+            text-align: center; margin-bottom: 20px; width: 100%;
+        }
+        .gallery-header h2 {
+            font-size: 1.6rem; font-weight: 700; color: #fff; letter-spacing: 1px;
+            text-shadow: 0 0 30px rgba(255,136,0,0.2);
+        }
+        .gallery-header p {
+            color: #888; font-size: 0.75rem; margin-top: 6px; font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+        /* modal */
+        #modal {
+            display:none; position:fixed; z-index:9999; top:0; left:0;
+            width:100%; height:100%; background:rgba(0,0,0,.95);
+            justify-content:center; align-items:center; backdrop-filter:blur(12px);
+            animation:modalFade .3s ease;
+        }
+        @keyframes modalFade { from{opacity:0; transform:scale(.95);} to{opacity:1; transform:scale(1);} }
+        #modal span {
+            position:absolute; top:30px; right:45px; font-size:50px; color:#fff;
+            cursor:pointer; font-weight:300; transition:.3s; z-index:10000;
+            width:60px; height:60px; display:flex; align-items:center; justify-content:center;
+            border-radius:50%; background:rgba(255,255,255,.05);
+        }
+        #modal span:hover { color:#ff8800; transform:rotate(90deg); background:rgba(255,136,0,.15); }
+        #modal-img {
+            max-width:88%; max-height:88%; border-radius:16px;
+            box-shadow:0 0 80px rgba(255,100,0,.5); border:3px solid #ff8800;
+            object-fit:contain; animation:modalImgFade .4s ease;
+        }
+        @keyframes modalImgFade { from{opacity:0; transform:scale(.9);} to{opacity:1; transform:scale(1);} }
         /* footer */
         .footer {
             background:#0a0a0a; border-top:1px solid #1f1f1f;
@@ -131,64 +180,7 @@
             align-items:center; flex-wrap:wrap; gap:10px;
         }
         .footer-bottom p { color:#555; font-size:.8rem; font-weight:300; text-align:center; }
-        /* gallery desktop grid */
-        .gallery-section { width:100%; display:flex; justify-content:center; padding:30px 20px 50px; background:#141414; }
-        .gallery-wrapper { display:flex; justify-content:center; width:100%; max-width:900px; flex-direction:column; align-items:center; }
-        #gallery-container {
-            display:grid; grid-template-columns:repeat(11,1fr); gap:8px;
-            background:#1a1a1a; padding:16px; border-radius:16px;
-            box-shadow:0 0 40px rgba(255,100,0,.15); width:100%; position:relative;
-        }
-        .small-img {
-            width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:8px;
-            cursor:pointer; transition:transform .3s cubic-bezier(.2,.9,.4,1), box-shadow .3s;
-            border:2px solid transparent; -webkit-tap-highlight-color:transparent;
-        }
-        .small-img:hover { transform:scale(1.1); box-shadow:0 0 25px rgba(255,150,50,.6); border-color:#ff8800; z-index:10; position:relative; }
-        .small-img:active { transform:scale(.92); }
-        #main-display {
-            grid-row:2 / span 4; grid-column:4 / span 5;
-            background:#0a0a0a; border-radius:12px; padding:6px;
-            border:3px solid #ff6600; box-shadow:0 0 40px rgba(255,100,0,.3);
-            display:flex; align-items:center; justify-content:center; overflow:hidden;
-            aspect-ratio:1/1; transition:border-color .3s;
-        }
-        #main-display:hover { border-color:#ff8800; }
-        #main-display img { width:100%; height:100%; object-fit:cover; border-radius:9px; }
-        /* gallery header - ONLY VISIBLE ON MOBILE */
-        .gallery-header {
-            display: none; /* hidden on desktop */
-            text-align: center; margin-bottom: 16px; width: 100%;
-        }
-        .gallery-header h2 {
-            font-size: 1.8rem; font-weight: 700; color: #fff; letter-spacing: 1px;
-            text-shadow: 0 0 30px rgba(255,136,0,0.2);
-        }
-        .gallery-header p {
-            color: #888; font-size: 0.8rem; margin-top: 4px; font-weight: 300;
-            letter-spacing: 0.5px;
-        }
-        /* modal */
-        #modal {
-            display:none; position:fixed; z-index:9999; top:0; left:0;
-            width:100%; height:100%; background:rgba(0,0,0,.95);
-            justify-content:center; align-items:center; backdrop-filter:blur(12px);
-            animation:modalFade .3s ease;
-        }
-        @keyframes modalFade { from{opacity:0; transform:scale(.95);} to{opacity:1; transform:scale(1);} }
-        #modal span {
-            position:absolute; top:30px; right:45px; font-size:50px; color:#fff;
-            cursor:pointer; font-weight:300; transition:.3s; z-index:10000;
-            width:60px; height:60px; display:flex; align-items:center; justify-content:center;
-            border-radius:50%; background:rgba(255,255,255,.05);
-        }
-        #modal span:hover { color:#ff8800; transform:rotate(90deg); background:rgba(255,136,0,.15); }
-        #modal-img {
-            max-width:88%; max-height:88%; border-radius:16px;
-            box-shadow:0 0 80px rgba(255,100,0,.5); border:3px solid #ff8800;
-            object-fit:contain; animation:modalImgFade .4s ease;
-        }
-        @keyframes modalImgFade { from{opacity:0; transform:scale(.9);} to{opacity:1; transform:scale(1);} }
+
         /* --- responsive --- */
         @media (max-width:1024px) {
             .card { flex:0 0 calc((100% - 36px) / 4); min-width:160px; }
@@ -206,27 +198,11 @@
             .hero-description { font-size:.88rem; max-width:100%; }
             .row-container { padding:0 24px; }
             .card { flex:0 0 calc((100% - 20px) / 3); min-width:130px; }
-            /* gallery carousel mobile */
-            .gallery-section { padding:20px 0 40px; }
-            .gallery-wrapper { max-width:100%; padding:0 16px; }
-            #gallery-container {
-                display:flex; gap:12px; overflow-x:auto; overflow-y:hidden;
-                padding:12px 8px; border-radius:12px; scroll-behavior:smooth;
-                -ms-overflow-style:none; scrollbar-width:none;
-                background:transparent; box-shadow:none;
-            }
-            #gallery-container::-webkit-scrollbar { display:none; }
-            .small-img {
-                flex:0 0 calc((100% - 24px) / 3); min-width:100px;
-                aspect-ratio:1/1; border-radius:8px; border:2px solid #333;
-                transition:transform .3s, border-color .3s;
-            }
-            .small-img:active { transform:scale(.92); }
-            #main-display { display:none; }
-            /* show gallery header ONLY on mobile */
-            .gallery-header { display: block; }
-            .footer { padding:40px 24px 24px; }
+            /* show gallery on mobile only */
+            .gallery-section { display: flex !important; flex-direction: column; align-items: center; padding: 0 16px; }
+            .footer { padding:30px 20px 20px; }
             .footer-content { flex-direction:column; text-align:center; gap:24px; }
+            .footer-social-icons a { width:44px; height:44px; font-size:1.5rem; }
         }
         @media (max-width:480px) {
             .navbar { padding:0 14px; height:56px; }
@@ -249,17 +225,15 @@
             .card-title { font-size:.65rem; min-height:1.6rem; }
             .card-desc { font-size:.55rem; }
             .card-info { padding:6px 6px 4px; }
-            .gallery-section { padding:16px 0 32px; }
-            .gallery-wrapper { padding:0 12px; }
             #gallery-container { gap:10px; padding:10px 6px; }
             .small-img { flex:0 0 calc((100% - 20px) / 3); min-width:80px; border-radius:6px; border-width:1.5px; }
             #modal span { top:12px; right:14px; font-size:28px; width:44px; height:44px; }
             #modal-img { max-width:94%; max-height:78%; border-radius:12px; border-width:2px; }
-            .footer { padding:28px 14px 18px; margin-top:16px; }
+            .footer { padding:24px 12px 16px; }
             .footer-brand h3 { font-size:1.1rem; }
             .footer-brand p { font-size:.75rem; }
             .footer-social-icons { gap:12px; }
-            .footer-social-icons a { width:38px; height:38px; font-size:1.1rem; }
+            .footer-social-icons a { width:38px; height:38px; font-size:1.2rem; }
             .footer-bottom { margin-top:16px; padding-top:14px; }
             .footer-bottom p { font-size:.6rem; }
             .gallery-header h2 { font-size: 1.3rem; }
@@ -271,7 +245,7 @@
             .btn-play, .btn-mylist { padding:6px 14px; font-size:.7rem; min-width:60px; }
             .card { flex:0 0 calc((100% - 6px) / 2); min-width:70px; }
             .card-title { font-size:.55rem; min-height:1.3rem; }
-            .card-desc { font-size:.5rem; }
+            .card-desc { font-size:.55rem; }
             .card-info { padding:4px 4px 3px; }
             .small-img { flex:0 0 calc((100% - 16px) / 3); min-width:65px; border-radius:5px; }
             #gallery-container { gap:8px; padding:8px 4px; }
@@ -290,31 +264,13 @@
             .nav-links li a { font-size:.7rem; }
             .row-container { padding:0 16px; }
             .card { flex:0 0 calc((100% - 16px) / 3); min-width:100px; }
-            .gallery-wrapper { padding:0 16px; }
             .small-img { flex:0 0 calc((100% - 20px) / 4); min-width:80px; }
             .footer { padding:20px; }
             .footer-content { flex-direction:row; flex-wrap:wrap; justify-content:center; gap:16px; }
-            .gallery-header { display: none; } /* hide on landscape */
-        }
-        /* fix spacing for gallery and footer */
-        #gallery-container { padding:16px; gap:8px; }
-        .footer { padding:50px 60px 30px; }
-        .footer-content { gap:30px; }
-        .footer-social-icons a { width:54px; height:54px; font-size:2rem; }
-        @media (max-width:768px) {
-            #gallery-container { padding:12px 6px; gap:8px; }
-            .footer { padding:30px 20px 20px; }
-            .footer-social-icons a { width:44px; height:44px; font-size:1.5rem; }
-        }
-        @media (max-width:480px) {
-            #gallery-container { padding:8px 4px; gap:6px; }
-            .footer { padding:24px 12px 16px; }
-            .footer-social-icons a { width:38px; height:38px; font-size:1.2rem; }
         }
     </style>
 </head>
 <body>
-<!-- navbar -->
 <nav class="navbar">
     <a href="home.html"><img class="navbar-logo" src="assets/logo.png" alt="Samay Raina" onerror="this.style.display='none'"></a>
     <ul class="nav-links">
@@ -325,7 +281,6 @@
         <li><a href="about.html">About</a></li>
     </ul>
 </nav>
-<!-- hero -->
 <section class="hero">
     <div class="hero-left">
         <div class="hero-content">
@@ -355,20 +310,16 @@
         <img src="assets/images/c20ea8d24658b87d6cbdc9a8ac355dd0.jpg" alt="Samay Raina">
     </div>
 </section>
-<!-- content rows -->
 <section class="content-rows" id="contentRows"></section>
-<!-- gallery -->
 <section class="gallery-section">
-    <div class="gallery-wrapper">
-        <!-- header only visible on mobile -->
+    <div class="gallery-wrapper" style="flex-direction:column; align-items:center;">
         <div class="gallery-header">
             <h2>📸 Wallpapers</h2>
-            <p>best viewed on desktop · click any image to expand</p>
+            <p>click any image to expand</p>
         </div>
         <div id="gallery-container"></div>
     </div>
 </section>
-<!-- modal -->
 <div id="modal" onclick="closeModal()">
     <span onclick="closeModal()">&times;</span>
     <img id="modal-img" src="" alt="full view">
@@ -395,7 +346,7 @@
         "assets/images/efe3aaf5d313f6185f2f731a39695999.jpg","assets/images/f3dfcb94d2f0c84c40bd8613149d17d1.jpg",
         "assets/images/fc0d02aa8c948b7a9e6d8bf665b38f56.jpg"
     ];
-    // ===== RENDER GALLERY =====
+    // ===== RENDER GALLERY (MOBILE ONLY) =====
     function renderGallery() {
         const container = document.getElementById('gallery-container');
         const isMobile = window.innerWidth <= 768;
@@ -406,56 +357,8 @@
             });
             container.innerHTML = html;
         } else {
-            // desktop grid with fixed 11 columns
-            let html = '';
-            // row1 (grid-row:1)
-            for (let i=0; i<11 && i<galleryImages.length; i++) {
-                html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:1; grid-column:${i+1};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'">`;
-            }
-            // row2 left (col 1-3)
-            for (let i=11; i<14 && i<galleryImages.length; i++) {
-                html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:2; grid-column:${i-10};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'">`;
-            }
-            // row2 right (col 9-11)
-            for (let i=14; i<17 && i<galleryImages.length; i++) {
-                html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:2; grid-column:${i-5};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'">`;
-            }
-            // row3 left (col 1-3)
-            for (let i=17; i<20 && i<galleryImages.length; i++) {
-                html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:3; grid-column:${i-16};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'">`;
-            }
-            // row3 right (col 9-11)
-            for (let i=20; i<23 && i<galleryImages.length; i++) {
-                html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:3; grid-column:${i-11};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'">`;
-            }
-            // row4 left (col 1-3)
-            for (let i=23; i<26 && i<galleryImages.length; i++) {
-                html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:4; grid-column:${i-22};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'">`;
-            }
-            // row4 right (col 9-11)
-            for (let i=26; i<29 && i<galleryImages.length; i++) {
-                html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:4; grid-column:${i-17};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'">`;
-            }
-            // row5 left (col 1-3)
-            for (let i=29; i<32 && i<galleryImages.length; i++) {
-                html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:5; grid-column:${i-28};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'">`;
-            }
-            // row5 right (col 9-11)
-            for (let i=32; i<35 && i<galleryImages.length; i++) {
-                html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:5; grid-column:${i-23};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'">`;
-            }
-            // row6 (col 1-11)
-            for (let i=0; i<11 && i<galleryImages.length; i++) {
-                html += `<img class="small-img" src="${galleryImages[i]}" style="grid-row:6; grid-column:${i+1};" onmouseover="showMain('${galleryImages[i]}')" onclick="openModal('${galleryImages[i]}')" onerror="this.style.display='none'">`;
-            }
-            // main display
-            html += `<div id="main-display"><img id="main-img" src="${galleryImages[0]}" alt="Samay Raina"></div>`;
-            container.innerHTML = html;
+            container.innerHTML = '';
         }
-    }
-    function showMain(src) {
-        const mainImg = document.getElementById('main-img');
-        if (mainImg) mainImg.src = src;
     }
     function openModal(src) {
         document.getElementById('modal-img').src = src;
@@ -515,7 +418,6 @@
     renderGallery();
     window.addEventListener('resize', renderGallery);
 </script>
-<!-- footer -->
 <footer class="footer">
     <div class="footer-content">
         <div class="footer-brand">

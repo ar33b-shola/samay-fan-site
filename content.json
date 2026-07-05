@@ -1,7 +1,7 @@
 {
   "categories": [
     {
-      "title": "Developer's Favourite",
+      "title": "Featured",
       "items": [
         {
           "title": "Samay Raina – STILL ALIVE (Full Special)",
@@ -28,10 +28,39 @@
           "description": "Featuring Harssh Limbachiya, Kiku Sharda and Chandan Prabhakar."
         },
         {
-          "title": "Oye Hoye Kya Scene Hai | India’s Got Latent",
+          "title": "Oye Hoye Kya Scene Hai | India's Got Latent",
           "youtubeId": "qmdTRtZZXxQ",
           "url": "https://www.youtube.com/watch?v=qmdTRtZZXxQ",
-          "description": "Oye Hoye Kya Scene Hai from the popular reality talent hunt show India’s Got Latent"
+          "description": "Oye Hoye Kya Scene Hai from the popular reality talent hunt show India's Got Latent"
+        }
+      ]
+    },
+    {
+      "title": "Developer's Favourite",
+      "items": [
+        {
+          "title": "Samay Raina Epic Moments with Amitabh Bacchan",
+          "youtubeId": "UTj7ROzRA2U",
+          "url": "https://www.youtube.com/watch?v=UTj7ROzRA2U",
+          "description": "Samay Raina's epic moments with the legendary Amitabh Bacchan."
+        },
+        {
+          "title": "BEST MOMENTS OF LATENT FROM 2024",
+          "youtubeId": "fH_Lw-Xq_6Y",
+          "url": "https://www.youtube.com/watch?v=fH_Lw-Xq_6Y",
+          "description": "The best moments from India's Got Latent in 2024."
+        },
+        {
+          "title": "DEEPAK KALAL v/s PUNEET SUPERSTAR",
+          "youtubeId": "Om1dVmOgxz8",
+          "url": "https://www.youtube.com/watch?v=Om1dVmOgxz8",
+          "description": "Deepak Kalal vs Puneet Superstar - a must watch face-off."
+        },
+        {
+          "title": "Trying Food Hacks So You Don't Have To Ft. @SamayRainaOfficial | Sahiba Bali | Zomato",
+          "youtubeId": "5d2iztjXNPE",
+          "url": "https://www.youtube.com/watch?v=5d2iztjXNPE",
+          "description": "Sahiba Bali and Samay Raina try food hacks in this Zomato collaboration."
         }
       ]
     }

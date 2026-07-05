@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>Samay Raina · fan</title>
+    <title>Samay Raina</title>
     <style>
-        /* Reset & base – mobile first */
+        /* Reset & base */
         * {
             margin: 0;
             padding: 0;
@@ -16,15 +16,13 @@
             background: #000;
             overflow: hidden;
             height: 100vh;
-            width: 100vw;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Helvetica Neue', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-            touch-action: manipulation;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
         }
 
-        /* DISCLAIMER PAGE – mobile friendly */
+        /* DISCLAIMER PAGE */
         #disclaimer {
             position: fixed;
             inset: 0;
@@ -35,7 +33,7 @@
             z-index: 10000;
             opacity: 1;
             transition: opacity 0.5s ease;
-            padding: 16px;
+            padding: 20px;
         }
 
         #disclaimer.hidden {
@@ -46,32 +44,25 @@
         .disclaimer-content {
             max-width: 600px;
             width: 100%;
-            padding: 28px 20px 32px;
+            padding: 40px;
             text-align: center;
             color: #fff;
-            background: #0a0a0a;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-            border: 1px solid #1a1a1a;
-            margin: 0 8px;
         }
 
         .disclaimer-content h1 {
-            font-size: 2.1rem;
+            font-size: 2.5rem;
             font-weight: 300;
             letter-spacing: 2px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             color: #fff;
-            word-break: break-word;
         }
 
         .disclaimer-content p {
             font-size: 0.95rem;
-            line-height: 1.7;
-            color: #bbb;
-            margin-bottom: 14px;
+            line-height: 1.8;
+            color: #aaa;
+            margin-bottom: 18px;
             font-weight: 300;
-            padding: 0 4px;
         }
 
         .disclaimer-content p strong {
@@ -87,26 +78,21 @@
             background: #E50914;
             color: #fff;
             border: none;
-            padding: 16px 32px;
-            font-size: 1.05rem;
+            padding: 14px 50px;
+            font-size: 1rem;
             font-weight: 500;
-            border-radius: 60px;
+            border-radius: 4px;
             cursor: pointer;
-            transition: background 0.2s ease, transform 0.1s ease;
-            margin-top: 12px;
+            transition: background 0.2s ease;
+            margin-top: 10px;
             letter-spacing: 0.5px;
-            width: 100%;
-            max-width: 320px;
-            touch-action: manipulation;
-            box-shadow: 0 4px 12px rgba(229, 9, 20, 0.3);
         }
 
-        .disclaimer-btn:active {
+        .disclaimer-btn:hover {
             background: #b20710;
-            transform: scale(0.97);
         }
 
-        /* Intro container – fullscreen */
+        /* Intro container */
         #intro {
             position: fixed;
             inset: 0;
@@ -117,7 +103,6 @@
             z-index: 9999;
             opacity: 1;
             transition: opacity 0.5s ease;
-            padding: 20px;
         }
 
         #intro.hidden {
@@ -125,85 +110,108 @@
             pointer-events: none;
         }
 
-        /* Logo wrapper – responsive size */
+        /* Logo wrapper */
         .logo-wrapper {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: min(220px, 60vw);
-            height: min(220px, 60vw);
+            width: 220px;
+            height: 220px;
             opacity: 0;
-            will-change: transform, opacity;
         }
 
         .logo-wrapper img {
             width: 100%;
             height: auto;
             display: block;
-            object-fit: contain;
-            max-width: 100%;
-            max-height: 100%;
         }
 
-        /* Netflix-style intro – smoother on mobile */
         @keyframes netflixIntro {
             0% {
                 opacity: 0;
-                transform: scale(0.85);
+                transform: scale(0.9);
             }
-            12% {
+            10% {
                 opacity: 1;
                 transform: scale(1);
             }
-            45% {
+            40% {
                 opacity: 1;
                 transform: scale(1);
             }
             100% {
                 opacity: 0;
-                transform: scale(3.8);
+                transform: scale(3.5);
             }
         }
 
         .logo-wrapper.animate {
-            animation: netflixIntro 3.5s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+            animation: netflixIntro 3.5s ease-out forwards;
         }
 
-        /* fallback text if image fails – mobile ready */
-        .logo-wrapper .fallback-text {
-            color: #E50914;
-            font-size: clamp(1.8rem, 12vw, 3.6rem);
-            font-weight: 700;
-            letter-spacing: 4px;
-            text-shadow: 0 0 20px rgba(229, 9, 20, 0.3);
-            padding: 8px;
-            text-align: center;
-            line-height: 1.2;
-        }
-
-        /* small screens fine-tuning */
-        @media (max-width: 480px) {
+        /* ============================================
+                   MOBILE OPTIMIZATIONS (same UI, just better)
+                   ============================================ */
+        @media (max-width: 640px) {
             .disclaimer-content {
-                padding: 24px 16px 28px;
-                border-radius: 20px;
+                padding: 30px 24px;
             }
+
             .disclaimer-content h1 {
-                font-size: 1.8rem;
+                font-size: 2.2rem;
+                margin-bottom: 24px;
+            }
+
+            .disclaimer-content p {
+                font-size: 0.92rem;
+                line-height: 1.7;
                 margin-bottom: 16px;
             }
-            .disclaimer-content p {
-                font-size: 0.9rem;
-                line-height: 1.6;
-                margin-bottom: 12px;
-            }
+
             .disclaimer-btn {
-                padding: 15px 20px;
+                padding: 16px 40px;
                 font-size: 1rem;
+                width: 100%;
+                max-width: 320px;
+                border-radius: 50px;
+            }
+
+            .disclaimer-btn:active {
+                transform: scale(0.97);
+                background: #b20710;
+            }
+
+            .logo-wrapper {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .disclaimer-content {
+                padding: 24px 18px;
+            }
+
+            .disclaimer-content h1 {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+
+            .disclaimer-content p {
+                font-size: 0.85rem;
+                line-height: 1.6;
+                margin-bottom: 14px;
+            }
+
+            .disclaimer-btn {
+                padding: 15px 32px;
+                font-size: 0.95rem;
                 max-width: 280px;
             }
+
             .logo-wrapper {
-                width: min(180px, 55vw);
-                height: min(180px, 55vw);
+                width: 150px;
+                height: 150px;
             }
         }
 
@@ -211,42 +219,57 @@
             .disclaimer-content h1 {
                 font-size: 1.5rem;
             }
+
             .disclaimer-content p {
-                font-size: 0.82rem;
+                font-size: 0.8rem;
             }
+
             .disclaimer-btn {
-                font-size: 0.9rem;
-                padding: 14px 16px;
+                font-size: 0.85rem;
+                padding: 14px 24px;
+            }
+
+            .logo-wrapper {
+                width: 130px;
+                height: 130px;
             }
         }
 
-        /* landscape phone support */
+        /* Landscape phone support */
         @media (max-height: 500px) and (orientation: landscape) {
             .disclaimer-content {
-                padding: 18px 20px 22px;
-                max-width: 500px;
+                padding: 20px 30px;
+                max-width: 550px;
             }
+
             .disclaimer-content h1 {
-                font-size: 1.6rem;
-                margin-bottom: 10px;
+                font-size: 1.8rem;
+                margin-bottom: 16px;
             }
+
             .disclaimer-content p {
                 font-size: 0.8rem;
                 line-height: 1.5;
-                margin-bottom: 8px;
+                margin-bottom: 10px;
             }
+
             .disclaimer-btn {
-                padding: 12px 24px;
+                padding: 12px 32px;
                 font-size: 0.9rem;
-                max-width: 240px;
+                max-width: 250px;
                 margin-top: 6px;
+            }
+
+            .logo-wrapper {
+                width: 150px;
+                height: 150px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- DISCLAIMER PAGE – mobile-first layout -->
+    <!-- DISCLAIMER PAGE -->
     <div id="disclaimer">
         <div class="disclaimer-content">
             <h1>Disclaimer</h1>
@@ -275,7 +298,7 @@
             <img
                 src="https://raw.githubusercontent.com/ar33b-shola/ar33b-shola.github.io/refs/heads/main/assets/logo.png"
                 alt="Samay Raina"
-                onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'fallback-text\'>SAMAY<br>RAINA</span>';"
+                onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:#E50914;font-size:3rem;font-weight:bold;letter-spacing:4px;\'>SAMAY RAINA</span>';"
             />
         </div>
     </div>
@@ -326,20 +349,14 @@
             }
 
             // --- DISCLAIMER CONTINUE ---
-            continueBtn.addEventListener('click', function(e) {
-                e.preventDefault();
+            continueBtn.addEventListener('click', function() {
                 disclaimer.classList.add('hidden');
                 setTimeout(function() {
                     startIntro();
                 }, 500);
             });
 
-            // touch-friendly fallback for any tap issues
-            continueBtn.addEventListener('touchstart', function(e) {
-                // just to ensure responsiveness on mobile
-            }, { passive: true });
-
-            console.log('Netflix-style intro ready · mobile optimized');
+            console.log('Netflix-style intro ready');
         })();
     </script>
 
